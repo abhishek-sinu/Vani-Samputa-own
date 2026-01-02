@@ -194,7 +194,50 @@
 }
 
 @media (max-width: 768px) {
+  .language-categories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .language-card {
+    min-height: 200px;
+  }
+
+  .language-card h2 {
+    font-size: 2rem;
+  }
+
+  .playlist-count-badge {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .selected-language-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .selected-language-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .back-to-languages {
+    width: 100%;
+    text-align: center;
+  }
+
   .playlists-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .playlist-content h3 {
+    font-size: 1.1rem;
   }
 }

@@ -55,3 +55,28 @@
   padding: 1.5rem;
   margin-top: 2rem;
 }
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .main-nav a {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .main-content {
+    padding: 0 1rem;
+  }
+
+  .app-footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
