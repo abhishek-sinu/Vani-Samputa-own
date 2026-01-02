@@ -85,74 +85,67 @@ Remember, spiritual life is not separate from daily activities. It should be int
 export const videoData = [
   {
     id: 1,
-    playlistName: "Bhagavad Gita Video Series",
-    description: "Complete video lecture series on Bhagavad Gita with detailed explanations",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    playlistName: "Stages of Bhakti (Shraddha-Prema)",
+    description: "A comprehensive series exploring the progressive stages of devotional service from initial faith to pure love",
+    language: "Hindi",
+    icon: "/icons/shraddha-prema-icon.jpg",
+    thumbnail: "https://img.youtube.com/vi/xxKdp4pcS94/maxresdefault.jpg",
     videos: [
       {
         id: 101,
-        title: "Bhagavad Gita Chapter 1 - Overview",
-        youtubeUrl: "https://www.youtube.com/watch?v=example1",
-        duration: "45:30",
-        description: "Introduction to the first chapter of Bhagavad Gita"
+        title: "Stages of Bhakti Part 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=xxKdp4pcS94",
+        duration: "N/A",
+        description: "Introduction to the stages of devotional service"
       },
       {
         id: 102,
-        title: "Bhagavad Gita Chapter 2 - The Soul",
-        youtubeUrl: "https://www.youtube.com/watch?v=example2",
-        duration: "52:15",
-        description: "Understanding the eternal nature of the soul"
+        title: "Stages of Bhakti Part 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=-o1KJfBzxRg",
+        duration: "N/A",
+        description: "Continuing the exploration of devotional stages"
       },
       {
         id: 103,
-        title: "Bhagavad Gita Chapter 3 - Karma Yoga",
-        youtubeUrl: "https://www.youtube.com/watch?v=example3",
-        duration: "48:20",
-        description: "The path of action and duty"
-      }
-    ]
-  },
-  {
-    id: 2,
-    playlistName: "Srimad Bhagavatam Classes",
-    description: "Weekly classes on Srimad Bhagavatam covering various cantos",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    videos: [
-      {
-        id: 201,
-        title: "SB Canto 1 - Introduction",
-        youtubeUrl: "https://www.youtube.com/watch?v=example4",
-        duration: "1:05:30",
-        description: "Beginning of Srimad Bhagavatam study"
+        title: "Stages of Bhakti Part 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=jQPzu6U7ACU",
+        duration: "N/A",
+        description: "Deeper understanding of spiritual progression"
       },
       {
-        id: 202,
-        title: "SB Canto 1 Chapter 2 - Devotional Service",
-        youtubeUrl: "https://www.youtube.com/watch?v=example5",
-        duration: "58:45",
-        description: "Understanding pure devotional service"
-      }
-    ]
-  },
-  {
-    id: 3,
-    playlistName: "Festival Lectures",
-    description: "Special lectures delivered during various spiritual festivals",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    videos: [
-      {
-        id: 301,
-        title: "Janmashtami Special - Birth of Krishna",
-        youtubeUrl: "https://www.youtube.com/watch?v=example6",
-        duration: "1:20:15",
-        description: "Celebrating the appearance of Lord Krishna"
+        id: 104,
+        title: "Stages of Bhakti Part 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=qXeZh3eJnGg",
+        duration: "N/A",
+        description: "Further stages in the path of devotion"
       },
       {
-        id: 302,
-        title: "Radhastami Celebration",
-        youtubeUrl: "https://www.youtube.com/watch?v=example7",
-        duration: "55:30",
-        description: "The appearance day of Srimati Radharani"
+        id: 105,
+        title: "Stages of Bhakti Part 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=peZUerT1uew",
+        duration: "N/A",
+        description: "Advanced topics in devotional service"
+      },
+      {
+        id: 106,
+        title: "Stages of Bhakti Part 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=CiAW01kRm2I",
+        duration: "N/A",
+        description: "Continuing the journey through bhakti stages"
+      },
+      {
+        id: 107,
+        title: "Stages of Bhakti Part 7",
+        youtubeUrl: "https://www.youtube.com/watch?v=QpELAY-HSM4",
+        duration: "N/A",
+        description: "Approaching the higher stages of devotion"
+      },
+      {
+        id: 108,
+        title: "Stages of Bhakti Part 8",
+        youtubeUrl: "https://www.youtube.com/watch?v=B5M8A4djAEk",
+        duration: "1:52:28",
+        description: "Conclusion of the stages of devotional service"
       }
     ]
   }

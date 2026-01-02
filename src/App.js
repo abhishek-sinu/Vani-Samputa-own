@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <header className="app-header">
           <div className="header-content">
-            <h1>Audio-Visual Library</h1>
+            <h1>Vāṇī Saṃpuṭa</h1>
             <nav className="main-nav">
               <Link to="/">Home</Link>
               <Link to="/audio">Audio Lectures</Link>
@@ -33,7 +33,7 @@ function App() {
         </main>
         
         <footer className="app-footer">
-          <p>&copy; 2026 Audio-Visual Library. All rights reserved.</p>
+          <p>&copy; 2026 Vāṇī Saṃpuṭa. All rights reserved.</p>
         </footer>
       </div>
     </Router>

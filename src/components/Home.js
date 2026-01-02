@@ -6,38 +6,36 @@ function Home() {
   return (
     <div className="home-container">
       <div className="hero-section">
-        <h1>Welcome to Audio-Visual Library</h1>
+        <h1>Welcome to Vāṇī Saṃpuṭa</h1>
         <p className="hero-subtitle">
           Access spiritual lectures with transcriptions and organized video playlists
         </p>
       </div>
 
       <div className="features-grid">
-        <div className="feature-card">
-          <div className="feature-icon">🎵</div>
-          <h2>Audio Lectures</h2>
-          <p>
-            Browse our extensive collection of audio lectures organized by category. 
-            Many lectures include detailed transcriptions for easy reference and study.
-          </p>
-          <Link to="/audio" className="feature-link">
-            Explore Audio Library →
-          </Link>
-        </div>
+        <Link to="/audio" className="feature-card-link">
+          <div className="feature-card">
+            <div className="feature-icon">🎵</div>
+            <h2>Audio Lectures</h2>
+            <p>
+              Browse our extensive collection of audio lectures organized by category. 
+              Many lectures include detailed transcriptions for easy reference and study.
+            </p>
+          </div>
+        </Link>
 
-        <div className="feature-card">
-          <div className="feature-icon">📹</div>
-          <h2>Video Playlists</h2>
-          <p>
-            Watch organized video playlists on various topics. All videos are linked 
-            to YouTube for seamless viewing experience.
-          </p>
-          <Link to="/video" className="feature-link">
-            Browse Video Playlists →
-          </Link>
-        </div>
+        <Link to="/video" className="feature-card-link">
+          <div className="feature-card">
+            <div className="feature-icon">📹</div>
+            <h2>Video Playlists</h2>
+            <p>
+              Watch organized video playlists on various topics. All videos are linked 
+              to YouTube for seamless viewing experience.
+            </p>
+          </div>
+        </Link>
 
-        <div className="feature-card">
+        <div className="feature-card feature-card-disabled">
           <div className="feature-icon">📝</div>
           <h2>Transcriptions</h2>
           <p>
