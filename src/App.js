@@ -6,6 +6,7 @@ import AudioLibrary from './components/AudioLibrary';
 import VideoLibrary from './components/VideoLibrary';
 import AudioDetail from './components/AudioDetail';
 import VideoPlaylist from './components/VideoPlaylist';
+import Admin from './components/Admin';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -51,6 +52,7 @@ function App() {
             <Route path="/audio/:id" element={<AudioDetail />} />
             <Route path="/video" element={<VideoLibrary />} />
             <Route path="/video/:playlistId" element={<VideoPlaylist />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         

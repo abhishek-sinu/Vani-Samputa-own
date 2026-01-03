@@ -27,8 +27,13 @@ function AudioLibrary() {
   return (
     <div className="audio-library-container">
       <div className="library-header">
-        <h1>Audio Lectures</h1>
-        <p>Listen to spiritual lectures organized by language with transcriptions</p>
+        {selectedLanguage && (
+          <button onClick={() => setSelectedLanguage(null)} className="back-to-languages">
+            ← Back to Languages
+          </button>
+        )}
+        <h1>{selectedLanguage ? `${selectedLanguage} Audio Lectures` : 'Audio Lectures'}</h1>
+        <p>{selectedLanguage ? `Browse ${selectedLanguage} spiritual lectures with transcriptions` : 'Listen to spiritual lectures organized by language with transcriptions'}</p>
       </div>
 
       {!selectedLanguage ? (
@@ -54,13 +59,6 @@ function AudioLibrary() {
         </div>
       ) : (
         <>
-          <div className="selected-language-header">
-            <button onClick={() => setSelectedLanguage(null)} className="back-to-languages">
-              ← Back to Languages
-            </button>
-            <h2>{selectedLanguage} Audio Lectures</h2>
-          </div>
-
           <div className="search-container">
             <div className="search-bar">
               <span className="search-icon">🔍</span>
@@ -101,6 +99,11 @@ function AudioLibrary() {
                     <div className="playlist-content">
                       <h3>{playlist.playlistName}</h3>
                       <p className="playlist-description">{playlist.description}</p>
+                      {playlist.location && (
+                        <p className="playlist-location">
+                          📍 {playlist.location}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </Link>

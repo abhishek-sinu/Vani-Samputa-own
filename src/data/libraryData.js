@@ -5,6 +5,7 @@ export const audioData = [
     category: "Chaitanya Charitamrita",
     description: "lecture series on Sriman Mahaprabhu & Prema Bhakti",
     language: "Hindi",
+    location: "ISKCON Vrindavan",
     icon: "/icons/Sriman_Mahaprabhu_&_Prema_Bhakti_Day.jpg",
     audios: [
       {
@@ -53,6 +54,7 @@ export const videoData = [
     playlistName: "Stages of Bhakti (Shraddha-Prema)",
     description: "A comprehensive series exploring the progressive stages of devotional service from initial faith to pure love",
     language: "Hindi",
+    location: "ISKCON Dwarka",
     icon: "/icons/shraddha-prema-icon.jpg",
     thumbnail: "https://img.youtube.com/vi/xxKdp4pcS94/maxresdefault.jpg",
     videos: [

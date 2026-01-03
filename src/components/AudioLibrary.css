@@ -25,6 +25,27 @@
   overflow: hidden;
 }
 
+.library-header .back-to-languages {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  background: white;
+  color: #8b6f47;
+  border: 2px solid #8b6f47;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.library-header .back-to-languages:hover {
+  background: #8b6f47;
+  color: white;
+}
+
 .library-header::before {
   content: '';
   position: absolute;
@@ -333,6 +354,16 @@
 .playlist-description {
   color: #666;
   line-height: 1.6;
+}
+
+.playlist-location {
+  color: #8b6f47;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 @media (max-width: 768px) {
