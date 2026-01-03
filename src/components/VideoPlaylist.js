@@ -19,14 +19,36 @@ function VideoPlaylist() {
     );
   }
 
-  // Extract YouTube video ID from URL
-  const getYouTubeEmbedUrl = (url) => {
-    const videoId = url.split('v=')[1] || 'dQw4w9WgXcQ';
+  const getYouTubeVideoId = (rawUrl) => {
+    if (!rawUrl) return null;
+
+    try {
+      const url = new URL(rawUrl);
+
+      if (url.hostname === 'youtu.be') {
+        const id = url.pathname.replace('/', '');
+        return id || null;
+      }
+
+      if (url.searchParams.has('v')) return url.searchParams.get('v');
+
+      const pathMatch = url.pathname.match(/\/(embed|shorts)\/([^/?]+)/);
+      if (pathMatch?.[2]) return pathMatch[2];
+    } catch {
+      // ignore
+    }
+
+    const fallback = String(rawUrl).match(/(?:v=|\/)([0-9A-Za-z_-]{11})(?:[?&/]|$)/);
+    return fallback?.[1] || null;
+  };
+
+  const getYouTubeEmbedUrl = (rawUrl) => {
+    const videoId = getYouTubeVideoId(rawUrl) || 'dQw4w9WgXcQ';
     return `https://www.youtube.com/embed/${videoId}`;
   };
 
-  const getYouTubeThumbnail = (url) => {
-    const videoId = url.split('v=')[1]?.split('&')[0] || 'dQw4w9WgXcQ';
+  const getYouTubeThumbnail = (rawUrl) => {
+    const videoId = getYouTubeVideoId(rawUrl) || 'dQw4w9WgXcQ';
     return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
   };
 

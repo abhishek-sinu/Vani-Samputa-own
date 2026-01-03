@@ -7,6 +7,35 @@ function VideoLibrary() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const getYouTubeVideoId = (rawUrl) => {
+    if (!rawUrl) return null;
+
+    try {
+      const url = new URL(rawUrl);
+
+      if (url.hostname === 'youtu.be') {
+        const id = url.pathname.replace('/', '');
+        return id || null;
+      }
+
+      if (url.searchParams.has('v')) return url.searchParams.get('v');
+
+      const pathMatch = url.pathname.match(/\/(embed|shorts)\/([^/?]+)/);
+      if (pathMatch?.[2]) return pathMatch[2];
+    } catch {
+      // ignore
+    }
+
+    const fallback = String(rawUrl).match(/(?:v=|\/)([0-9A-Za-z_-]{11})(?:[?&/]|$)/);
+    return fallback?.[1] || null;
+  };
+
+  const getYouTubeThumbnailUrl = (rawUrl) => {
+    const videoId = getYouTubeVideoId(rawUrl);
+    if (!videoId) return null;
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  };
+
   const languages = [
     { name: 'Odia', icon: '🕉️', color: '#ff6b6b', displayName: 'ଓଡ଼ିଆ', image: '/icons/odia-card.jpg' },
     { name: 'Hindi', icon: '🙏', color: '#4ecdc4', displayName: 'हिंदी', image: '/icons/hindi-card.jpg' },
@@ -84,31 +113,43 @@ function VideoLibrary() {
 
           {filteredPlaylists.length > 0 ? (
             <div className="playlists-grid">
-              {filteredPlaylists.map(playlist => (
-                <Link key={playlist.id} to={`/video/${playlist.id}`} className="playlist-card-link">
-                  <div className="playlist-card">
-                    <div className="playlist-thumbnail">
-                      <div className="thumbnail-overlay">
-                        <span className="video-count">{playlist.videos.length} Videos</span>
+              {filteredPlaylists.map(playlist => {
+                const playlistThumbnail =
+                  getYouTubeThumbnailUrl(playlist.videos?.[0]?.youtubeUrl) || playlist.thumbnail;
+
+                return (
+                  <Link key={playlist.id} to={`/video/${playlist.id}`} className="playlist-card-link">
+                    <div className="playlist-card">
+                      <div className="playlist-thumbnail">
+                        {playlistThumbnail ? (
+                          <img
+                            src={playlistThumbnail}
+                            alt={playlist.playlistName}
+                            className="playlist-thumbnail-img"
+                          />
+                        ) : playlist.icon && playlist.icon.startsWith('/') ? (
+                          <img src={playlist.icon} alt={playlist.playlistName} className="playlist-icon-img" />
+                        ) : (
+                          <span className="playlist-icon-emoji">{playlist.icon || '▶️'}</span>
+                        )}
+
+                        <div className="thumbnail-overlay">
+                          <span className="video-count">{playlist.videos.length} Videos</span>
+                        </div>
                       </div>
-                      {playlist.icon && playlist.icon.startsWith('/') ? (
-                        <img src={playlist.icon} alt={playlist.playlistName} className="playlist-icon-img" />
-                      ) : (
-                        <span className="playlist-icon-emoji">{playlist.icon || '▶️'}</span>
-                      )}
+                      <div className="playlist-content">
+                        <h3>{playlist.playlistName}</h3>
+                        <p className="playlist-description">{playlist.description}</p>
+                        {playlist.location && (
+                          <p className="playlist-location">
+                            📍 {playlist.location}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="playlist-content">
-                      <h3>{playlist.playlistName}</h3>
-                      <p className="playlist-description">{playlist.description}</p>
-                      {playlist.location && (
-                        <p className="playlist-location">
-                          📍 {playlist.location}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           ) : (
             <div className="no-playlists">
