@@ -10,7 +10,7 @@ export const audioData = [
       {
         id: 101,
         title: "Sriman Mahaprabhu & Prema Bhakti Day 1",
-        audioUrl: "/audio/Sriman_Mahaprabhu_&_Prema_Bhakti_Day_1.mp3",
+        audioUrl: "https://res.cloudinary.com/dds3bav6u/video/upload/v1767429733/Sriman_Mahaprabhu__amp__Prema_Bhakti_Day_1_t2oeth.mp3",
         duration: "N/A",
         date: "2024-01-02",
         hasTranscription: true,
@@ -19,7 +19,7 @@ export const audioData = [
       {
         id: 102,
         title: "Sriman Mahaprabhu & Prema Bhakti Day 2",
-        audioUrl: "/audio/Sriman_Mahaprabhu_&_Prema_Bhakti_Day_2.mp3",
+        audioUrl: "https://res.cloudinary.com/dds3bav6u/video/upload/v1767424183/Sriman_Mahaprabhu___Prema_Bhakti_Day_2_slnazk.mp3",
         duration: "45:30",
         date: "2024-01-15",
         hasTranscription: true,
@@ -28,7 +28,7 @@ export const audioData = [
       {
         id: 103,
         title: "Sriman Mahaprabhu & Prema Bhakti Day 3",
-        audioUrl: "/audio/Sriman_Mahaprabhu_&_Prema_Bhakti_Day_3.mp3",
+        audioUrl: "https://res.cloudinary.com/dds3bav6u/video/upload/v1767424166/Sriman_Mahaprabhu__amp__Prema_Bhakti_Day_3_qqpcws.mp3",
         duration: "45:30",
         date: "2024-01-15",
         hasTranscription: true,
@@ -37,7 +37,7 @@ export const audioData = [
       {
         id: 104,
         title: "Sriman Mahaprabhu & Prema Bhakti Day 4",
-        audioUrl: "/audio/Sriman_Mahaprabhu_&_Prema_Bhakti_Day_4.mp3",
+        audioUrl: "https://res.cloudinary.com/dds3bav6u/video/upload/v1767420883/Sriman_Mahaprabhu___Prema_Bhakti_Day_4_gb5ii7.mp3",
         duration: "45:30",
         date: "2024-01-15",
         hasTranscription: true,
