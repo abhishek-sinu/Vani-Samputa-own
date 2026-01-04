@@ -33,15 +33,15 @@
 }
 
 .logo-circle {
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  box-shadow: none;
 }
 
 .site-logo {
@@ -50,9 +50,30 @@
   object-fit: contain;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  margin-top: 0.15rem;
+  opacity: 0.9;
+}
+
+.header-subtitle::after {
+  content: "";
+  display: block;
+  width: 170px;
+  height: 3px;
+  margin-top: 0.35rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+}
+
 .app-header h1 {
   font-size: 2rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .main-nav {
@@ -131,13 +152,22 @@
 
 @media (max-width: 768px) {
   .logo-circle {
-    width: 50px;
-    height: 50px;
-    padding: 8px;
+    width: 58px;
+    height: 58px;
+    padding: 0;
   }
 
   .app-header h1 {
     font-size: 1.5rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .header-subtitle::after {
+    width: 140px;
+    height: 3px;
   }
 
   .header-content {

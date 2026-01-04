@@ -11,7 +11,7 @@ export const audioData = [
       {
         id: 101,
         title: "Sriman Mahaprabhu & Prema Bhakti Day 1",
-        audioUrl: "https://res.cloudinary.com/dds3bav6u/video/upload/v1767429733/Sriman_Mahaprabhu__amp__Prema_Bhakti_Day_1_t2oeth.mp3",
+        audioUrl: "https://audio.iskcondesiretree.com/02_-_ISKCON_Swamis/ISKCON_Swamis_-_D_to_P/His_Holiness_Haladhar_Swami/Oriya_Lectures/Bhagavad_Gita/Chapter-03/Haladhar_Sw_BG_03-01_Oriya_-_Introduction_to_Chapter-03_-_2022-02-15.mp3",
         duration: "1:51:50",
         date: "2024-01-02",
         hasTranscription: true,
@@ -119,6 +119,7 @@ export const videoData = [
   {
     id: 2,
     playlistName: "Teachings of Lord Chaitanya",
+    category: "Chaitanya Charitamrita",
     description: "",
     language: "Hindi",
     location: "Iskcon Bhopal BYC",
@@ -159,6 +160,7 @@ export const videoData = [
     id: 3,
     playlistName: "Brahma Vimohan Lila",
     description: "",
+    category: "Srimad Bhagavatam",
     language: "Odia",
     location: "ISKCON Bhubaneswar",
     icon: "▶️",
@@ -219,6 +221,7 @@ export const videoData = [
     id: 4,
     playlistName: "Aghasura Lila",
     description: "",
+    category: "Srimad Bhagavatam",
     language: "Odia",
     location: "ISKCON Bhubaneswar",
     icon: "▶️",
@@ -292,7 +295,7 @@ export const videoData = [
   {
     id: 5,
     playlistName: "Sanatana Goswami",
-    description: "",
+    category: "Chaitanya Charitamrita",
     language: "Hindi",
     location: "ISKCON Ravet Sri Govind Dham",
     icon: "▶️",
@@ -324,6 +327,7 @@ export const videoData = [
   {
     id: 6,
     playlistName: "Avadhut Yadu Samvaad",
+    category: "Srimad Bhagavatam",
     description: "",
     language: "Odia",
     location: "ISKCON Bhubaneswar",

@@ -150,6 +150,10 @@ Each component has its own CSS file for easy customization of layout and styling
 - **YouTube Embed API** - Video playback
 - **CSS3** - Styling and animations
 
+## Android App (Capacitor)
+
+To package this web app as an Android app (without rewriting it), see [ANDROID_APP_SETUP.md](ANDROID_APP_SETUP.md).
+
 ## Future Enhancements
 
 - Search functionality across all content

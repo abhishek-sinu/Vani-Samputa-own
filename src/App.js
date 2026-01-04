@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route, Link } from 'react-router-dom';
+import { Capacitor } from '@capacitor/core';
 import './App.css';
 import Home from './components/Home';
 import AudioLibrary from './components/AudioLibrary';
@@ -10,6 +11,8 @@ import Admin from './components/Admin';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  const Router = Capacitor.isNativePlatform() ? HashRouter : BrowserRouter;
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -26,9 +29,12 @@ function App() {
           <div className="header-content">
             <Link to="/" className="header-branding">
               <div className="logo-circle">
-                <img src="/logo.png" alt="Vāṇī Saṃpuṭa Logo" className="site-logo" />
+                <img src="/logo-vs.png" alt="Vāṇī Saṃpuṭa Logo" className="site-logo" />
               </div>
-              <h1>Vāṇī Saṃpuṭa</h1>
+              <div className="brand-text">
+                <h1>Vāṇī Saṃpuṭa</h1>
+                <div className="header-subtitle">HH Haladhara Svāmī Mahārāja</div>
+              </div>
             </Link>
             <button className="mobile-menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle menu">
               <span className={mobileMenuOpen ? "hamburger open" : "hamburger"}>

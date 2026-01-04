@@ -22,6 +22,68 @@
   margin-bottom: 3rem;
 }
 
+.daily-quote-section {
+  margin: -1.25rem auto 3rem;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.daily-quote-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.daily-quote-label {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: #4a2f1a;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.22) 0%, rgba(107, 68, 35, 0.16) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.daily-quote-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.daily-quote-track {
+  display: flex;
+  width: 100%;
+  transition: transform 650ms ease;
+}
+
+.daily-quote-slide {
+  min-width: 100%;
+  padding: 1.25rem 1.25rem 1.35rem;
+}
+
+.daily-quote-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.daily-quote-title {
+  font-weight: 700;
+  color: #333;
+}
+
+.daily-quote-language {
+  font-weight: 600;
+  color: #8b6f47;
+  opacity: 0.95;
+}
+
+.daily-quote-text {
+  color: #444;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
 .hero-content {
   display: flex;
   align-items: center;
@@ -229,5 +291,23 @@
   
   .features-grid {
     grid-template-columns: 1fr;
+  }
+
+  .daily-quote-section {
+    margin: -0.75rem auto 2.25rem;
+  }
+
+  .daily-quote-slide {
+    padding: 1rem 1rem 1.1rem;
+  }
+
+  .daily-quote-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daily-quote-track {
+    transition: none;
   }
 }
