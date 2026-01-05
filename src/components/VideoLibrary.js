@@ -20,6 +20,7 @@ function VideoLibrary() {
     'Chaitanya-Charitamrita',
     'Srimad Bhagavatam',
     'Vaisnava Songs',
+    'Festivals',
     'Festival Lecture',
     'Initiation',
     'Initiation Ceremony',

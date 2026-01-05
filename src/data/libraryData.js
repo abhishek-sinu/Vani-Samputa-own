@@ -2906,5 +2906,848 @@ export const videoData = [
         description: "02 Jul 2022 • HH Haladhara Swami Maharaj • Sri Sri Radha Rasesvara Ashram Bali"
       }
     ]
+  },
+  {
+    id: 52,
+    playlistName: "Kunti Stuti",
+    category: ["Srimad Bhagavatam"],
+    description: "ISKCON Mayapur • English • Part 1–6",
+    language: "English",
+    location: "ISKCON MAYAPUR",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/LrE9Lly3jH0/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Kunti Stuti Part 1/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=LrE9Lly3jH0",
+        duration: "1:54:41",
+        description: "2019 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      },
+      {
+        id: 102,
+        title: "Kunti Stuti Part 2/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=3ahwiLOxtDo",
+        duration: "2:00:28",
+        description: "2019 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      },
+      {
+        id: 103,
+        title: "Kunti Stuti Part 3/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=n9Zx9e5apoU",
+        duration: "2:08:45",
+        description: "2019 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      },
+      {
+        id: 104,
+        title: "Kunti Stuti Part 4/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=s2VRexpjW48",
+        duration: "1:59:32",
+        description: "05/03/2020 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      },
+      {
+        id: 105,
+        title: "Kunti Stuti Part 5/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=sVYM1yNu5C8",
+        duration: "2:08:11",
+        description: "06/03/2020 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      },
+      {
+        id: 106,
+        title: "Kunti Stuti Part 6/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=IjslNfQZVZ4",
+        duration: "1:49:31",
+        description: "08/03/2020 • HH Haladhara Swami Maharaj • ISKCON MAYAPUR"
+      }
+    ]
+  },
+  {
+    id: 53,
+    playlistName: "Mood Of Separation",
+    category: ["Chaitanya Charitamrita", "Srimad Bhagavatam"],
+    description: "ISKCON Dallas • English • Apr 2025 • Session 1–5",
+    language: "English",
+    location: "ISKCON Dallas",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/vRdUbkb0vFc/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Mood Of Separation Session 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=vRdUbkb0vFc",
+        duration: "1:04:56",
+        description: "21/04/2025 • HH Haladhara Swami Maharaj • ISKCON Dallas"
+      },
+      {
+        id: 102,
+        title: "Mood Of Separation Session 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=WYElmoaVT7M",
+        duration: "1:17:10",
+        description: "21/04/2025 • HH Haladhara Swami Maharaj • ISKCON Dallas"
+      },
+      {
+        id: 103,
+        title: "Mood Of Separation Session 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=a0NAMwPjWWk",
+        duration: "1:21:01",
+        description: "22/04/2025 • HH Haladhara Swami Maharaj • ISKCON Dallas"
+      },
+      {
+        id: 104,
+        title: "Mood Of Separation Session 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=UUonswDy2n0",
+        duration: "1:14:20",
+        description: "22/04/2025 • HH Haladhara Swami Maharaj • ISKCON Dallas"
+      },
+      {
+        id: 105,
+        title: "Mood Of Separation Session 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=lR7z_VQW298",
+        duration: "1:19:06",
+        description: "23/04/2025 • HH Haladhara Swami Maharaj • ISKCON Dallas"
+      }
+    ]
+  },
+  {
+    id: 54,
+    playlistName: "Namahatta Mela Katha-Kirtana",
+    category: ["Tattva"],
+    description: "ISKCON Bhubaneswar • Odia • May 2022 • Day 1–2",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/rNzHlG_W57s/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Namahatta Mela Katha-Kirtana Day 1/2",
+        youtubeUrl: "https://www.youtube.com/watch?v=rNzHlG_W57s",
+        duration: "1:12:39",
+        description: "21/05/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Namahatta Mela Katha-Kirtana Day 2/2",
+        youtubeUrl: "https://www.youtube.com/watch?v=G0athe3Nh7g",
+        duration: "1:35:50",
+        description: "22/05/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
+  },
+  {
+    id: 55,
+    playlistName: "Namahatta Mela",
+    category: ["Tattva"],
+    description: "ISKCON Bhubaneswar • Dec 2024 • Day 1–3",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/ztBVQpTRTa4/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Namahatta Mela Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=ztBVQpTRTa4",
+        duration: "1:05:50",
+        description: "17/12/2024 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Namahatta Mela Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=U0tU7b8Y5dg",
+        duration: "1:09:46",
+        description: "19/12/2024 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 103,
+        title: "Namahatta Mela Day 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=7G0aRy8n-g4",
+        duration: "1:44:56",
+        description: "20/12/2024 • Odia • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
+  },
+  {
+    id: 56,
+    playlistName: "Narsimha Katha",
+    category: ["Festival Lecture"],
+    description: "ISKCON Juhu • Hindi • May 2016 • Day 1–6",
+    language: "Hindi",
+    location: "ISKCON Juhu",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/Q-f5nHjwL7A/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Narsimha Katha Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=Q-f5nHjwL7A",
+        duration: "1:39:35",
+        description: "14/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      },
+      {
+        id: 102,
+        title: "Narsimha Katha Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=lm9q6Iq1qsU",
+        duration: "1:12:20",
+        description: "15/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      },
+      {
+        id: 103,
+        title: "Narsimha Katha Day 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=O2JhOaJGOy4",
+        duration: "1:40:25",
+        description: "16/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      },
+      {
+        id: 104,
+        title: "Narsimha Katha Day 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=9kxkOOybjVA",
+        duration: "1:58:17",
+        description: "17/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      },
+      {
+        id: 105,
+        title: "Narsimha Katha Day 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=0Retp_qVXkI",
+        duration: "1:56:50",
+        description: "18/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      },
+      {
+        id: 106,
+        title: "Narsimha Katha Day 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=NQqB6qY2rwA",
+        duration: "1:47:32",
+        description: "19/05/2016 • HH Haladhara Swami Maharaj • ISKCON Juhu"
+      }
+    ]
+  },
+  {
+    id: 57,
+    playlistName: "Nityananda Prabhu Katha",
+    category: ["Chaitanya Charitamrita"],
+    description: "ISKCON Delhi • Hindi • Feb 2020 • Day 1–5 (Morning/Evening)",
+    language: "Hindi",
+    location: "ISKCON Delhi",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/GPKSOw-Pps0/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Nityananda Prabhu Katha Day 1 (Morning)",
+        youtubeUrl: "https://www.youtube.com/watch?v=GPKSOw-Pps0",
+        duration: "1:39:05",
+        description: "01/02/2020 • Morning • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 102,
+        title: "Nityananda Prabhu Katha Day 1 (Evening)",
+        youtubeUrl: "https://www.youtube.com/watch?v=JI7OqQbCf3s",
+        duration: "1:40:14",
+        description: "01/02/2020 • Evening • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 103,
+        title: "Nityananda Prabhu Katha Day 2 (Morning)",
+        youtubeUrl: "https://www.youtube.com/watch?v=-u2Avot2qjs",
+        duration: "1:43:08",
+        description: "02/02/2020 • Morning • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 104,
+        title: "Nityananda Prabhu Katha Day 2 (Evening)",
+        youtubeUrl: "https://www.youtube.com/watch?v=YcoU69i3xgk",
+        duration: "1:39:52",
+        description: "02/02/2020 • Evening • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 105,
+        title: "Nityananda Prabhu Katha Day 3 (Morning)",
+        youtubeUrl: "https://www.youtube.com/watch?v=PbzoLPwuDIA",
+        duration: "1:43:16",
+        description: "03/02/2020 • Morning • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 106,
+        title: "Nityananda Prabhu Katha Day 3 (Evening)",
+        youtubeUrl: "https://www.youtube.com/watch?v=JJ0khBP-Fzw",
+        duration: "1:34:03",
+        description: "03/02/2020 • Evening • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 107,
+        title: "Nityananda Prabhu Katha Day 4 (Morning)",
+        youtubeUrl: "https://www.youtube.com/watch?v=4ebDnzOOwIw",
+        duration: "1:52:38",
+        description: "04/02/2020 • Morning • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 108,
+        title: "Nityananda Prabhu Katha Day 4 (Evening)",
+        youtubeUrl: "https://www.youtube.com/watch?v=01FYYlVzugg",
+        duration: "1:49:46",
+        description: "04/02/2020 • Evening • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      },
+      {
+        id: 109,
+        title: "Nityananda Prabhu Katha Day 5 (Morning)",
+        youtubeUrl: "https://www.youtube.com/watch?v=stZGQGIk4CA",
+        duration: "1:52:23",
+        description: "05/02/2020 • Morning • HH Haladhara Swami Maharaj • ISKCON Delhi"
+      }
+    ]
+  },
+  {
+    id: 58,
+    playlistName: "Nityananda Prabhu Katha Kirtan",
+    category: ["Chaitanya Charitamrita"],
+    description: "Kanpur • Hindi • Feb 2021 • Session 1–3",
+    language: "Hindi",
+    location: "Kanpur",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/LZooUx2BJMI/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Nityananda Prabhu Katha Kirtan Session 1/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=LZooUx2BJMI",
+        duration: "2:01:52",
+        description: "22/02/2021 • HH Haladhara Swami Maharaj • Kanpur"
+      },
+      {
+        id: 102,
+        title: "Nityananda Prabhu Katha Kirtan Session 2/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=vFKfIlIlyUc",
+        duration: "2:17:55",
+        description: "23/02/2021 • HH Haladhara Swami Maharaj • Kanpur"
+      },
+      {
+        id: 103,
+        title: "Nityananda Prabhu Katha Kirtan Session 3/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=kq6LyTV1Ibs",
+        duration: "1:30:23",
+        description: "24/02/2021 • HH Haladhara Swami Maharaj • Kanpur"
+      }
+    ]
+  },
+  {
+    id: 59,
+    playlistName: "Prthu Maharaja Carita",
+    category: ["Srimad Bhagavatam"],
+    description: "ISKCON Bhubaneswar • Odia • Nov 2023 • Day 1–7",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/Iq6FmGckwZE/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Prthu Maharaja Carita - 2 Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=Iq6FmGckwZE",
+        duration: "2:01:53",
+        description: "04/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Prthu Maharaja Carita - 2 Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=ujTHTnPdgXg",
+        duration: "2:05:34",
+        description: "05/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 103,
+        title: "Prthu Maharaja Carita - 2 Day 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=rcAyj0K0Vac",
+        duration: "2:23:29",
+        description: "06/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 104,
+        title: "Prthu Maharaja Carita - 2 Day 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=wtwpFbOHjaI",
+        duration: "2:13:40",
+        description: "07/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 105,
+        title: "Prthu Maharaja Carita - 2 Day 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=z5I89lVAmlE",
+        duration: "2:16:08",
+        description: "08/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 106,
+        title: "Prthu Maharaja Carita - 2 Day 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=S3ByflFY5hY",
+        duration: "2:12:29",
+        description: "09/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 107,
+        title: "Prthu Maharaja Carita - 2 Day 7",
+        youtubeUrl: "https://www.youtube.com/watch?v=7SPONgoKK4M",
+        duration: "1:36:49",
+        description: "10/11/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
+  },
+  {
+    id: 60,
+    playlistName: "Prthu Maharaja Charitra",
+    category: ["Srimad Bhagavatam"],
+    description: "ISKCON Bhubaneswar • Odia • Aug 2023 • Day 1–7",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/6EfY4C5SkjQ/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Prthu Maharaja Charitra Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=6EfY4C5SkjQ",
+        duration: "1:48:46",
+        description: "20/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Prthu Maharaja Charitra Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=688qixWmAXk",
+        duration: "1:56:26",
+        description: "21/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 103,
+        title: "Prthu Maharaja Charitra Day 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=tBLTh29UZEM",
+        duration: "2:06:18",
+        description: "22/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 104,
+        title: "Prthu Maharaja Charitra Day 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=zIbSTY3H8ug",
+        duration: "2:11:46",
+        description: "23/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 105,
+        title: "Prthu Maharaja Charitra Day 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=ryI8yM5Wy2A",
+        duration: "2:02:29",
+        description: "24/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 106,
+        title: "Prthu Maharaja Charitra Day 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=10NL3BQmopI",
+        duration: "2:06:45",
+        description: "25/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 107,
+        title: "Prthu Maharaja Charitra Day 7",
+        youtubeUrl: "https://www.youtube.com/watch?v=Knvt4oG0rx8",
+        duration: "1:45:53",
+        description: "26/08/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
+  },
+  {
+    id: 61,
+    playlistName: "Putana Uddhara Lila",
+    category: ["Srimad Bhagavatam"],
+    description: "ISKCON Nayagarh, Odisha • Odia • Sep 2023 • Day 1–5",
+    language: "Odia",
+    location: "ISKCON Nayagarh, Odisha",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/1NffxsAhy_0/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Putana Uddhara Lila Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=1NffxsAhy_0",
+        duration: "1:50:29",
+        description: "01/09/2023 • HH Haladhara Swami Maharaj • ISKCON Nayagarh, Odisha"
+      },
+      {
+        id: 102,
+        title: "Putana Uddhara Lila Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=a5e8PwdP8YI",
+        duration: "2:11:12",
+        description: "02/09/2023 • HH Haladhara Swami Maharaj • ISKCON Nayagarh, Odisha"
+      },
+      {
+        id: 103,
+        title: "Putana Uddhara Lila Day 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=sChda5sM78w",
+        duration: "2:03:00",
+        description: "03/09/2023 • HH Haladhara Swami Maharaj • ISKCON Nayagarh, Odisha"
+      },
+      {
+        id: 104,
+        title: "Putana Uddhara Lila Day 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=SpR3OMwSL94",
+        duration: "2:14:28",
+        description: "04/09/2023 • HH Haladhara Swami Maharaj • ISKCON Nayagarh, Odisha"
+      },
+      {
+        id: 105,
+        title: "Putana Uddhara Lila Day 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=-ao8uM-NuEg",
+        duration: "1:39:33",
+        description: "05/09/2023 • HH Haladhara Swami Maharaj • ISKCON Nayagarh, Odisha"
+      }
+    ]
+  },
+  {
+    id: 62,
+    playlistName: "Samudra Manthana",
+    category: ["Srimad Bhagavatam"],
+    description: "ISKCON Bhubaneswar • Odia • Jan 2023 • Part 1–14",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/xWuZL5CfqZE/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Samudra Manthana Part 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=xWuZL5CfqZE",
+        duration: "1:13:36",
+        description: "25/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Samudra Manthana Part 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=W0Fnsk4rHRk",
+        duration: "2:34:26",
+        description: "25/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 103,
+        title: "Samudra Manthana Part 3",
+        youtubeUrl: "https://www.youtube.com/watch?v=asgaLPsvD34",
+        duration: "1:23:29",
+        description: "26/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 104,
+        title: "Samudra Manthana Part 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=2bCcl9TxVHs",
+        duration: "2:13:41",
+        description: "26/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 105,
+        title: "Samudra Manthana Part 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=7wFjS5uiIt8",
+        duration: "1:37:42",
+        description: "27/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 106,
+        title: "Samudra Manthana Part 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=Z1SURFj9UTE",
+        duration: "2:13:30",
+        description: "27/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 107,
+        title: "Samudra Manthana Part 7",
+        youtubeUrl: "https://www.youtube.com/watch?v=Seji1ivgnaA",
+        duration: "1:33:19",
+        description: "28/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 108,
+        title: "Samudra Manthana Part 8",
+        youtubeUrl: "https://www.youtube.com/watch?v=W2fVWJaRoYE",
+        duration: "2:10:44",
+        description: "28/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 109,
+        title: "Samudra Manthana Part 9",
+        youtubeUrl: "https://www.youtube.com/watch?v=f6dAKouANJY",
+        duration: "1:46:54",
+        description: "29/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 110,
+        title: "Samudra Manthana Part 10",
+        youtubeUrl: "https://www.youtube.com/watch?v=0SxTyDM1JF0",
+        duration: "1:58:32",
+        description: "29/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 111,
+        title: "Samudra Manthana Part 11",
+        youtubeUrl: "https://www.youtube.com/watch?v=Rw9YSGj_rdU",
+        duration: "1:32:20",
+        description: "30/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 112,
+        title: "Samudra Manthana Part 12",
+        youtubeUrl: "https://www.youtube.com/watch?v=M6LvbU62MdA",
+        duration: "1:59:40",
+        description: "30/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 113,
+        title: "Samudra Manthana Part 13",
+        youtubeUrl: "https://www.youtube.com/watch?v=XRoUpYNihVk",
+        duration: "2:01:16",
+        description: "31/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 114,
+        title: "Samudra Manthana Part 14",
+        youtubeUrl: "https://www.youtube.com/watch?v=qP--av3GYtk",
+        duration: "2:13:17",
+        description: "31/01/2023 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
+  },
+  {
+    id: 63,
+    playlistName: "Saranagati - The Essence from the lives of Great Souls",
+    category: ["Other"],
+    description: "ISKCON Mayapur • English • Mar 2024 • Part 1–3",
+    language: "English",
+    location: "ISKCON Mayapur",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/-rwC8Diku_8/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Saranagati Part 1/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=-rwC8Diku_8",
+        duration: "2:06:59",
+        description: "21/03/2024 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      },
+      {
+        id: 102,
+        title: "Saranagati Part 2/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=s_ByYpaJ1rk",
+        duration: "1:55:36",
+        description: "22/03/2024 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      },
+      {
+        id: 103,
+        title: "Saranagati Part 3/3",
+        youtubeUrl: "https://www.youtube.com/watch?v=J_CNj5rtUXs",
+        duration: "1:52:27",
+        description: "23/03/2024 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      }
+    ]
+  },
+  {
+    id: 64,
+    playlistName: "Saranagati",
+    category: ["Other"],
+    description: "ISKCON Nasik • Hindi • Dec 2022 • Part 1–5",
+    language: "Hindi",
+    location: "ISKCON Nasik",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/olE5LGDnkJI/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Saranagati Part 1/5",
+        youtubeUrl: "https://www.youtube.com/watch?v=olE5LGDnkJI",
+        duration: "1:56:22",
+        description: "11/12/2022 • HH Haladhara Swami Maharaj • ISKCON Nasik"
+      },
+      {
+        id: 102,
+        title: "Saranagati Part 2/5",
+        youtubeUrl: "https://www.youtube.com/watch?v=-wTuByFJrmE",
+        duration: "1:24:30",
+        description: "11/12/2022 • HH Haladhara Swami Maharaj • ISKCON Nasik"
+      },
+      {
+        id: 103,
+        title: "Saranagati Part 3/5",
+        youtubeUrl: "https://www.youtube.com/watch?v=xHxdpInmZk4",
+        duration: "1:24:43",
+        description: "12/12/2022 • HH Haladhara Swami Maharaj • ISKCON Nasik"
+      },
+      {
+        id: 104,
+        title: "Saranagati Part 4/5",
+        youtubeUrl: "https://www.youtube.com/watch?v=liCZWKKkuIc",
+        duration: "1:37:05",
+        description: "13/12/2022 • HH Haladhara Swami Maharaj • ISKCON Nasik"
+      },
+      {
+        id: 105,
+        title: "Saranagati Part 5/5",
+        youtubeUrl: "https://www.youtube.com/watch?v=d51HuFYpqkA",
+        duration: "1:34:39",
+        description: "14/12/2022 • HH Haladhara Swami Maharaj • ISKCON Nasik"
+      }
+    ]
+  },
+  {
+    id: 65,
+    playlistName: "Sikshastakam",
+    category: ["Chaitanya-Charitamrita"],
+    description: "ISKCON Vrindavan • English • Oct 2019 • Day 1–6",
+    language: "English",
+    location: "ISKCON Vrindavan",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/djt_ygUbhEM/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Sikshastakam Day 1/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=djt_ygUbhEM",
+        duration: "2:27:43",
+        description: "24/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      },
+      {
+        id: 102,
+        title: "Sikshastakam Day 2/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=KqHFz82By4Y",
+        duration: "2:04:19",
+        description: "25/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      },
+      {
+        id: 103,
+        title: "Sikshastakam Day 3/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=kbeG73_dAIc",
+        duration: "1:54:59",
+        description: "26/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      },
+      {
+        id: 104,
+        title: "Sikshastakam Day 4/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=hnx9Y5hiyZY",
+        duration: "2:00:23",
+        description: "27/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      },
+      {
+        id: 105,
+        title: "Sikshastakam Day 5/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=ZIafqPXk8IY",
+        duration: "2:01:49",
+        description: "28/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      },
+      {
+        id: 106,
+        title: "Sikshastakam Day 6/6",
+        youtubeUrl: "https://www.youtube.com/watch?v=KNEaGYlNun8",
+        duration: "1:56:49",
+        description: "30/10/2019 • HH Haladhara Swami Maharaj • ISKCON Vrindavan"
+      }
+    ]
+  },
+  {
+    id: 66,
+    playlistName: "Sravana Utsava",
+    category: ["Festival Lecture"],
+    description: "ISKCON Mayapur • English • Feb 2022 • Day 1–4",
+    language: "English",
+    location: "ISKCON Mayapur",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/Btkz2FgH6c8/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Sravana Utsava Day 1/4",
+        youtubeUrl: "https://www.youtube.com/watch?v=Btkz2FgH6c8",
+        duration: "1:32:37",
+        description: "25/02/2022 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      },
+      {
+        id: 102,
+        title: "Sravana Utsava Day 2/4",
+        youtubeUrl: "https://www.youtube.com/watch?v=HsJIS7Ja5ZM",
+        duration: "1:30:08",
+        description: "26/02/2022 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      },
+      {
+        id: 103,
+        title: "Sravana Utsava Day 3/4",
+        youtubeUrl: "https://www.youtube.com/watch?v=PHRzV2up9hM",
+        duration: "1:32:59",
+        description: "27/02/2022 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      },
+      {
+        id: 104,
+        title: "Sravana Utsava Day 4/4",
+        youtubeUrl: "https://www.youtube.com/watch?v=IxeGGtQFqdk",
+        duration: "1:33:29",
+        description: "28/02/2022 • HH Haladhara Swami Maharaj • ISKCON Mayapur"
+      }
+    ]
+  },
+  {
+    id: 67,
+    playlistName: "Sri Gour Kathamrita",
+    category: ["Chaitanya-Charitamrita"],
+    description: "ISKCON Bhubaneswar • Odia • Mar 2022 • Day 1–7",
+    language: "Odia",
+    location: "ISKCON Bhubaneswar",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/xBgrdmvhLz4/maxresdefault.jpg",
+    videos: [
+      {
+        id: 101,
+        title: "Sri Gour Kathamrita Day 1",
+        youtubeUrl: "https://www.youtube.com/watch?v=xBgrdmvhLz4",
+        duration: "2:10:01",
+        description: "09/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 102,
+        title: "Sri Gour Kathamrita Day 2",
+        youtubeUrl: "https://www.youtube.com/watch?v=5dW-6tvXrm0",
+        duration: "2:06:13",
+        description: "10/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 103,
+        title: "Sri Gour Kathamrita Day 3 (Part 1)",
+        youtubeUrl: "https://www.youtube.com/watch?v=sv0L_2HgFJA",
+        duration: "0:22:45",
+        description: "11/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 104,
+        title: "Sri Gour Kathamrita Day 3 (Part 2)",
+        youtubeUrl: "https://www.youtube.com/watch?v=GWneBIemonU",
+        duration: "1:33:47",
+        description: "11/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 105,
+        title: "Sri Gour Kathamrita Day 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=HjcsuyuPCTE",
+        duration: "2:08:52",
+        description: "12/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 106,
+        title: "Sri Gour Kathamrita Day 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=41ofUDvLkHM",
+        duration: "2:16:30",
+        description: "13/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 107,
+        title: "Sri Gour Kathamrita Day 6",
+        youtubeUrl: "https://www.youtube.com/watch?v=H9IiYzPQy1c",
+        duration: "2:14:17",
+        description: "14/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      },
+      {
+        id: 108,
+        title: "Sri Gour Kathamrita Day 7",
+        youtubeUrl: "https://www.youtube.com/watch?v=zTOy0cuFOaY",
+        duration: "2:02:54",
+        description: "15/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
+      }
+    ]
   }
 ];
