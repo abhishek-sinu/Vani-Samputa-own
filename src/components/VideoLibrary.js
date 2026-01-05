@@ -12,11 +12,18 @@ function VideoLibrary() {
   const categories = [
     'Bhagvad Gita',
     'Bhakti-rasamrta-sindhu',
+    'Tattva',
+    'Guru Seva',
+    'Anugatya',
+    'Vaisnava Seva',
+    'Krishna Conciousness',
     'Chaitanya-Charitamrita',
     'Srimad Bhagavatam',
     'Vaisnava Songs',
     'Festival Lecture',
-    'Initiation Ceremony'
+    'Initiation',
+    'Initiation Ceremony',
+    'Other'
   ];
 
   const normalizeCategory = (value) =>
