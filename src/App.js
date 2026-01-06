@@ -38,7 +38,6 @@ function App() {
               <div className="brand-text">
                 <h1>Vāṇī Saṃpuṭa</h1>
                 <div className="header-subtitle">
-                  <div>Śrī Śrīmad Goura Govinda Svāmī Mahārāja</div>
                   <div>HH Haladhara Svāmī Mahārāja</div>
                 </div>
               </div>

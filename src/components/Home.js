@@ -128,9 +128,7 @@ function Home() {
             <h1>Welcome to Vāṇī Saṃpuṭa</h1>
             <p className="hero-subtitle">
               Access spiritual lectures with transcriptions and organized video playlists
-            </p>
-            <p className="hero-author">
-              Lectures given by <span className="guru-name">Śrī Śrīmad Goura Govinda Svāmī Mahārāja</span> and{' '}
+              Lectures given by <span className="guru-name"></span>
               <span className="guru-name">HH Haladhara Svāmī Mahārāja</span>
             </p>
           </div>
@@ -221,7 +219,6 @@ function Home() {
           This platform provides access to spiritual knowledge through audio and video formats. 
           Our collection includes lectures on Bhagavad Gita, Srimad Bhagavatam, conversations, 
           and special festival lectures given by{' '}
-          <span className="guru-name">Śrī Śrīmad Goura Govinda Svāmī Mahārāja</span> and{' '}
           <span className="guru-name">HH Haladhara Svāmī Mahārāja</span>.
         </p>
         <div className="stats-container">

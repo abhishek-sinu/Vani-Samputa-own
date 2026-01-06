@@ -21,9 +21,6 @@ export default function About() {
     <div className="about-page">
       <div className="about-hero">
         <h1>About</h1>
-        <p>
-         Sri Srimad Gour Govinda Swami Maharaj & His Holiness Haladhara Swami have
-        </p>
       </div>
 
       <div className="about-grid">
@@ -49,28 +46,6 @@ export default function About() {
           </p>
           <p>
             20 March 2016 Maharaj got the renounced order of sannyasa by His Holiness Radha Govinda Goswami Maharaj.
-          </p>
-        </AboutCard>
-
-        <AboutCard
-          heading="Śrī Śrīmad Goura Govinda Svāmī Mahārāja"
-          photoSrc="/icons/ssggs1.jpg"
-          alt="Śrī Śrīmad Goura Govinda Svāmī Mahārāja"
-        >
-          <p>
-            Sri Srimad Srila Gour Govinda Swami Maharaj appeared on the 2nd of September in the
-            Gaurabda year 443 (1929 A.D.) in Orissa, India. He is initiated disciple of His Divine Grace A. C. Bhaktivedanta Swami Prabhupada, the founder-acharya of the International Society for Krishna Consciousness (ISKCON).
-          </p>
-          <p>
-            Both his parents were devotees of Krishna and Jagannath, as were their ancestors up to the
-            time of Sri Syamananda Prabhu. His mother’s family were the famous kirtaniyas of Gadai
-            Giri.
-          </p>
-          <p>
-            Thus most of His Divine Grace’s child- and boyhood was spent in Gadai Giri, in the company
-            of his uncles and maternal grandfather, having kirtan and worshiping their ancient family
-            deity, Sri Gopal Jiu. He was never attached to play, but rather spent his time reading
-            Srimad Bhagavatam and Sri Chaitanya Charitamrta and singing Hare Krishna.
           </p>
         </AboutCard>
       </div>
