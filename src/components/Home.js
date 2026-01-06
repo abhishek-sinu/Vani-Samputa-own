@@ -132,9 +132,9 @@ function Home() {
               <span className="guru-name">HH Haladhara Svāmī Mahārāja</span>
             </p>
           </div>
-          <div className="guru-photo guru-photo-right">
+          {/* <div className="guru-photo guru-photo-right">
             <img src="/icons/ssggs1.jpg" alt="Śrī Śrīmad Goura Govinda Svāmī Mahārāja" />
-          </div>
+          </div> */}
         </div>
       </div>
 

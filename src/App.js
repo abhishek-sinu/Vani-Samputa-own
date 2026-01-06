@@ -54,7 +54,7 @@ function App() {
               <Link to="/about" onClick={closeMobileMenu}>About</Link>
               <Link to="/audio" onClick={closeMobileMenu}>Audio Lectures</Link>
               <Link to="/video" onClick={closeMobileMenu}>Video Playlists</Link>
-              <Link to="/crying-school" onClick={closeMobileMenu}>Crying School Videos</Link>
+              {/* <Link to="/crying-school" onClick={closeMobileMenu}>Crying School Videos</Link> */}
               <Link to="/live" onClick={closeMobileMenu}>Live</Link>
             </nav>
           </div>

@@ -159,6 +159,18 @@
     flex-direction: column;
     gap: 2rem;
   }
+
+  .hero-content > .guru-photo {
+    order: 3;
+  }
+
+  .hero-content > .hero-text {
+    order: 2;
+  }
+
+  .hero-content > .guru-photo.guru-photo-right {
+    order: 1;
+  }
   
   .hero-text {
     text-align: center;
