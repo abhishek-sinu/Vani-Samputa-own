@@ -32,7 +32,7 @@ function App() {
           <div className="header-content">
             <Link to="/" className="header-branding">
               <div className="logo-circle">
-                <img src="/logo-vs.png" alt="Vāṇī Saṃpuṭa Logo" className="site-logo" />
+                <img src="/logo.png" alt="Vāṇī Saṃpuṭa Logo" className="site-logo" />
               </div>
               <div className="brand-text">
                 <h1>Vāṇī Saṃpuṭa</h1>

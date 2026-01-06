@@ -29,6 +29,7 @@ const daySeed = () => Math.floor(Date.now() / 86400000);
 
 function Home() {
   const [quoteIndex, setQuoteIndex] = React.useState(() => daySeed() % DAILY_QUOTES.length);
+  const [visitorStats, setVisitorStats] = React.useState({ count: 0, lastVisit: null });
 
   React.useEffect(() => {
     const intervalId = setInterval(() => {
@@ -37,6 +38,51 @@ function Home() {
 
     return () => clearInterval(intervalId);
   }, []);
+
+  React.useEffect(() => {
+    let cancelled = false;
+
+    const increment = async () => {
+      const localKey = 'vani_samputa_visits_local';
+
+      try {
+        const response = await fetch('/api/visits', { method: 'POST' });
+        if (!response.ok) throw new Error('bad response');
+        const data = await response.json();
+        if (cancelled) return;
+        setVisitorStats({
+          count: typeof data?.count === 'number' ? data.count : Number(data?.count || 0),
+          lastVisit: data?.lastVisit || null
+        });
+      } catch {
+        // Local dev fallback (CRA doesn't run Vercel /api functions)
+        try {
+          const raw = window.localStorage.getItem(localKey);
+          const parsed = raw ? JSON.parse(raw) : null;
+          const next = {
+            count: Number(parsed?.count || 0) + 1,
+            lastVisit: new Date().toISOString()
+          };
+          window.localStorage.setItem(localKey, JSON.stringify(next));
+          if (!cancelled) setVisitorStats(next);
+        } catch {
+          // ignore
+        }
+      }
+    };
+
+    increment();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const formatLastVisit = (isoString) => {
+    if (!isoString) return '';
+    const d = new Date(isoString);
+    if (Number.isNaN(d.getTime())) return '';
+    return d.toLocaleString();
+  };
 
   return (
     <div className="home-container">
@@ -142,6 +188,13 @@ function Home() {
           <div className="stat-item">
             <div className="stat-number">100+</div>
             <div className="stat-label">Transcriptions</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number">{visitorStats.count ?? '—'}</div>
+            <div className="stat-label">Visitors</div>
+            {visitorStats.lastVisit && (
+              <div className="stat-subtext">Latest: {formatLastVisit(visitorStats.lastVisit)}</div>
+            )}
           </div>
         </div>
       </div>
