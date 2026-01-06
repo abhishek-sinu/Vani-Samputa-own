@@ -69,6 +69,13 @@
   z-index: 1;
 }
 
+.crying-school-guru {
+  font-weight: 800;
+  color: #8b6f47;
+  font-style: italic;
+  opacity: 0.9;
+}
+
 .language-categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -108,6 +115,16 @@
 .language-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+.language-icon-image {
+  width: 84px;
+  height: 84px;
+  border-radius: 9999px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  display: block;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
 }
 

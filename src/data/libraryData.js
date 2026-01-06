@@ -1,3 +1,7 @@
+import { cryingSchoolVideoData as cryingSchoolVideoDataEnglish } from './cryingSchoolVideoData.generated';
+import { cryingSchoolVideoDataOdia } from './cryingSchoolVideoData.odia.generated';
+import { cryingSchoolVideoDataHindi } from './cryingSchoolVideoData.hindi.manual';
+
 export const audioData = [
   {
     id: 1,
@@ -47,6 +51,334 @@ export const audioData = [
     ]
   }
 ];
+
+const parseTsvVideoRows = (raw) => {
+  const lines = String(raw || '')
+    .split(/\r?\n/)
+    .map((line) => line.trimEnd())
+    .filter((line) => Boolean(line.trim()));
+
+  const videos = [];
+  let nextId = 101;
+
+  for (const line of lines) {
+    const parts = line.split('\t').map((part) => part.trim());
+
+    const date = parts[0] || '';
+    const title = parts[1] || '';
+    const speaker = parts[2] || '';
+    const originalLanguage = parts[3] || '';
+    const kind = parts[4] || '';
+    const location = parts[5] || '';
+
+    const duration =
+      parts.find((p) => /^\d{1,2}:\d{2}:\d{2}$/.test(p)) ||
+      parts.find((p) => /^\d{1,2}:\d{2}$/.test(p)) ||
+      '';
+
+    const youtubeUrl = parts.find((p) => /^https?:\/\//i.test(p)) || '';
+
+    const description = [date, speaker, originalLanguage, kind, location].filter(Boolean).join(' • ');
+
+    videos.push({
+      id: nextId++,
+      title,
+      youtubeUrl,
+      duration,
+      description
+    });
+  }
+
+  return videos;
+};
+
+const bhagavadGitaHaladharaSwamiRaw = `6/1/2021\tIntroduction to Bhagavad Gita(part-1)-HH Haladhara Swami Maharaj(31/5/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:10:44\thttps://www.youtube.com/watch?v=mNwauTGIAlo
+6/2/2021\tSrimad Bhagavad Gita(introduction Part-2)-Sri Srimad Haladhara Swami Maharaj(1/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:18\thttps://www.youtube.com/watch?v=qVB6NsHkO20
+6/3/2021\tIntroduction 2 Srimad Bhagavad Gita&1.1 (Part-3)-HH Haladhara Swami Maharaj(2/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:26:15\thttps://www.youtube.com/watch?v=V3c-HyWE6jY
+6/4/2021\tSrimad Bhagavad Gita(1.2-3)(Part-3)-HH Haladhara Swami Maharaj(3/6/2\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:16:25\thttps://www.youtube.com/watch?v=2PLDmw4ObM4
+6/5/2021\tSrimad Bhagavad Gita(1.3)-HH Haladhara Swami Maharaj(4/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:11:39\thttps://www.youtube.com/watch?v=Y7VicgdSxTs
+6/6/2021\tSrimad Bhagavad Gita(1.6)-HH Haladhara Swami Maharaj(5/6/21)Topic:-Result of duplicity\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:45\thttps://www.youtube.com/watch?v=OvtzKm7w6d4
+6/7/2021\tSrimad Bhagavad Gita(1.8-9)-HH Haladhara Swami Maharaj(6/6/21) Topic-Shelter of duryodhan Vs Arjun\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:07:41\thttps://www.youtube.com/watch?v=tmSnstqkccc
+6/8/2021\tSrimad Bhagavad Gita(1.9-11)-HH Haladhara Swami Maharaj(7/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:40\thttps://www.youtube.com/watch?v=SIMwY9MnD04
+6/9/2021\tBhagavad Gita(1.12)-HH Haladhara Swami Maharaj(8/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:39\thttps://www.youtube.com/watch?v=9vP0C1v3xeY
+6/10/2021\tSrimad Bhagavad Gita(1.15-20)HH Haladhara Swami Maharaj(9/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:23:39\thttps://www.youtube.com/watch?v=QTEHZ1uvXUo
+6/11/2021\tBhagavad Gita(1.20)-HH Haladhara Swami Maharaj(10/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:25:40\thttps://www.youtube.com/watch?v=ON3amuYyVnU
+6/12/2021\tSrimad Bhagavad Gita(1.23)-HH Haladhara Swami Maharaj(11/6/21) Topic:- Cause of Durbuddhi ?\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:19\thttps://www.youtube.com/watch?v=FX8ZE-wvfqA
+6/13/2021\tBhagavad Gita(1.23)-HH Haladhara Swami Maharaj(12/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:20:56\thttps://www.youtube.com/watch?v=QZhlZlarkDU
+6/14/2021\tSrimad Bhagavad Gita(1.25-26)-HH Haladhara Swami Maharaj(13/6/21) Topic- ଭଜନ ର ପ୍ରାଣ ଆତ୍ମୀୟତା l👌👌👌\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:22:29\thttps://www.youtube.com/watch?v=J6X9zzzbW9c
+6/15/2021\tSrimad Bhagavad Gita(1.27)-HH Haladhara Swami Maharaj(14 /6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:05\thttps://www.youtube.com/watch?v=PcFSlFA94kM
+6/16/2021\tBhagavad Gita(1.28)-HH Haladhara Swami Maharaj(15/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:22:31\thttps://www.youtube.com/watch?v=1EoCkvvE3bk
+6/17/2021\tSrimad Bhagavad Gita(1.28-30)-HH Haladhara Swami Maharaj(16/6/21) Topic:- "Jiva daya"\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:22\thttps://www.youtube.com/watch?v=tHN028sB7Io
+6/19/2021\tSrimad Bhagavad Gita(1.32-35)-HH Haladhara Swami Maharaj(18/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:18:32\thttps://www.youtube.com/watch?v=fqdtzq4KJNI
+6/20/2021\tSrimad Bhagavad Gita(1:36)-HH Haladhar Swami Maharaj (19/06/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:15:39\thttps://www.youtube.com/watch?v=Svz7tgmeHd8
+6/21/2021\tBhagavad Gita(1.37)-HH Haladhara Swami Maharaj(20/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:32\thttps://www.youtube.com/watch?v=m7QLWlmIGTQ
+6/23/2021\tSrimad Bhagavad Gita(1.37-38)-HH Haladhara Swami Maharaj(22/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:16:40\thttps://www.youtube.com/watch?v=VJ0evVnsisQ
+6/24/2021\tSrimad Bhagavad Gita(1.39-40)-HH Haladhara Swami Maharaj(23/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:20:07\thttps://www.youtube.com/watch?v=NCm4ILX2YfQ
+6/25/2021\tSrimad Bhagavad Gita(1.40)-HH Haladhara Swami Maharaj(24/6/21)Topic:-Woman 's role in good society.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:18:40\thttps://www.youtube.com/watch?v=hCFDBybRTZY
+6/26/2021\tSrimad Bhagavad Gita(1.41-42)-HH Haladhara Swami Maharaj(25/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:23:15\thttps://www.youtube.com/watch?v=IB-rEdxCkkM
+6/27/2021\tSrimad Bhagavad Gita(1.42-43)-HH Haladhara Swami Maharaj(26/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:13\thttps://www.youtube.com/watch?v=LPN9aIAeEKw
+6/28/2021\tSrimad Bhagavat Gita(1.43,44,45,46) HH Haladhar Swami Maharaj(27/6/21\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:23:15\thttps://www.youtube.com/watch?v=NvwwSbnQGSM
+6/29/2021\tSrimad Bhagavad Gita(1.46)-HH Haladhar Swami Maharaj(28/6/21)Topic:- Lessons from 2nd Chapter\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:15\thttps://www.youtube.com/watch?v=fTqp1KRxazY
+6/30/2021\tSrimad Bhagavad Gita(Lesson from 2nd chapter by Srila BV Thakur)-HH Haladhara Swami Maharaj(29/6/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:50\thttps://www.youtube.com/watch?v=nV0agAw1zSk
+7/2/2021\tBhagavad Gita(2.2)-HH Haladhara Swami Maharaj(1/7/21)Topic: Obstacle in bhakti:-Hrudaya doubarlyata\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:14:00\thttps://www.youtube.com/watch?v=rhqhhpRN4xQ
+7/3/2021\tSrimad Bhagavad Gita(2.4-5)-HH Haladhara Swami Maharaj(2/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:10\thttps://www.youtube.com/watch?v=gX-4b9VTTcU
+7/4/2021\tSrimad Bhagavad Gita(2.6)-HH Haladhara Swami Maharaj(3/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:26\thttps://www.youtube.com/watch?v=CiTLXMkF2O8
+7/6/2021\tSrimad Bhagavad Gita(2.6)-HH Haladhara Swami Maharaj(5/7/21)Topic:-Qualification to be a disciple.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:09:35\thttps://www.youtube.com/watch?v=EboKwtwKZVc
+7/7/2021\tSrimad Bhagavad Gita(2.7)-HH Haladhara Swami Maharaj(6/7/21)Topic:-Dealings between Guru & Disciple.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:24:55\thttps://www.youtube.com/watch?v=-UVWzXSFPks
+7/8/2021\tSrimad Bhagavad Gita(2.7-8)HH Haladhar Swami Maharaj(07/07/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:51\thttps://www.youtube.com/watch?v=T8GslHwuOoU
+7/9/2021\tSrimad Bhagavad Gita(2.8)-HH Haladhara Swami Maharaj(8/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:55\thttps://www.youtube.com/watch?v=xvNoa3LKPqI
+7/14/2021\tSRIMAD BHAGABAT GITA KATHA KIRTAN  ON 11/7/21 || HH HALADHARA SWĀMI MAHĀRĀJA\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:02:12\thttps://www.youtube.com/watch?v=j59XO60Khdg
+7/15/2021\tSrimad Bhagavad Gita(2.11)-HH Haladhara Swami Maharaj(14/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:10\thttps://www.youtube.com/watch?v=TBZQTA7b3B8
+7/16/2021\tBhagavad Gita(2.11)-HH Haladhara Swami Maharaj(15/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:20\thttps://www.youtube.com/watch?v=5me715pNDyU
+7/17/2021\tBhagavad Gita(2:12)H H Haladharswami Maharaj(16/07/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:09:09\thttps://www.youtube.com/watch?v=IFL8fmKHGb8
+7/18/2021\tBhagavad Gita(2.13)HH Haladhar Swami Maharaj(17/07/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:18:32\thttps://www.youtube.com/watch?v=ps4IXpjIMBk
+7/19/2021\tBhagavad Gita (2.14)-HH Haladhara Swami Maharaj (18/7/21) Topic:-Formula 2 increase tolerance power.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:30\thttps://www.youtube.com/watch?v=TTsLRSKyCGo
+7/20/2021\tSrimad Bhagavat Gita(2.15)HHHaladhar Swami Maharaj 19/7/2021\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:04:25\thttps://www.youtube.com/watch?v=lyByj76BAqg
+7/21/2021\tBhagavad Gita(2.16)-HH Haladhara Swami Maharaj(20/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:50\thttps://www.youtube.com/watch?v=xmXAJ0yU4n8
+7/22/2021\tSrimd Bhagavad Gita(2.16-17)-HH Haladhara Swami Maharaj(21/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:20\thttps://www.youtube.com/watch?v=LEQ6_qHlwaQ
+7/23/2021\tSrimad Bhagavad Gita(2.18-20)-HH Haladhara Swami Maharaj(22/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:05\thttps://www.youtube.com/watch?v=3sSf6TkgT8s
+7/26/2021\tBhagavad Gita(2.21)-HH Haladhara Swami Maharaj(25/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:03:20\thttps://www.youtube.com/watch?v=j7pjC8inrOE
+7/27/2021\tBhagavad Gita(2.22)HH Haladhar Swami Maharaj(26/07/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:49\thttps://www.youtube.com/watch?v=er46uW2KaBE
+7/28/2021\tSrimad Bhagavat Gita(2.23)-HH Haladhara Swami maharaj (27/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:05:01\thttps://www.youtube.com/watch?v=CeDEmVSH7hY
+7/29/2021\tSrimad Bhagavad Gita(2.24)-HH Haladhara Swami Maharaj(28/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:13\thttps://www.youtube.com/watch?v=9NCzehFQyJU
+7/30/2021\tBhagavad Gita(2.24)-HH Haladhara Swami Maharaj(29/7/21)Topic- "Atma Tattva" in a simple way\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:01\thttps://www.youtube.com/watch?v=H6R-iv4fz1I
+7/31/2021\tBhagavad Gita-HH Haladhara Swami Maharaj(30/7/21)Topic:-Obstacles in the path of self realisation\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:15:15\thttps://www.youtube.com/watch?v=giuRDdLmW9o
+8/1/2021\tBhagavad Gita(2.26)-HH Haladhara Swami Maharaj(31/7/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:21\thttps://www.youtube.com/watch?v=V5ivhPqNjx4
+8/3/2021\tSrimad Bhagavad Gita(2.26)-HH Haladhara Swami Maharaj(2/821)Topic-why to read different  commentary\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:09:24\thttps://www.youtube.com/watch?v=7I0Oeizbe9o
+8/4/2021\tSrimadBhagavad Gita(2.27)-HH Haladhara Swami Maharaj(3/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:55\thttps://www.youtube.com/watch?v=FIOsuc98GyI
+8/5/2021\tSrimad Bhagavad Gita(2.28)HH Haladhar Swami Maharaj(4/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:10\thttps://www.youtube.com/watch?v=dQxyLNkTwiw
+8/6/2021\tBhagavad Gita(2.28)-HH Haladhara Swami Maharaj(5/8/21)T-How to get rid of bodily conception of life.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:10:52\thttps://www.youtube.com/watch?v=oHZjhIZWXk8
+8/7/2021\tSrimad Bhagavad-Gita Gita(2.28)HH Haladhara Swami Maharaj(6/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:35\thttps://www.youtube.com/watch?v=xnEYfsplm48
+8/8/2021\tBhagavad Gita(2.29)HH Haladhar Swami Maharaj(07/08/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:59\thttps://www.youtube.com/watch?v=V5F6oaGKQsY
+8/9/2021\tSrimad Bhagavad Gita(2.30)-HH Haladhara Swami Maharaj(8/7/21)Topic:-Bhakti yoga- Optimistic Path\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:20:39\thttps://www.youtube.com/watch?v=-uloFy6iPGc
+8/10/2021\tBhagavad Gita(2.29)-HH Haladhara Swami Maharaj(9/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:56\thttps://www.youtube.com/watch?v=I6CEocM2rJM
+8/11/2021\tBhagavad Gita(2.31)HH Haladhar Swami Maharaj(10/08/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:14:39\thttps://www.youtube.com/watch?v=uUKXWlYz4xY
+8/13/2021\tBhagavad Gita (10.16) HH Haladhar swami maharaj (12.08.2021)\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:09:38\thttps://www.youtube.com/watch?v=SlzYs6pvB2k
+8/14/2021\tBhagavad Gita (10.17) HH Haladhar swami maharaj (13.08.2021)\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t1:15:08\thttps://www.youtube.com/watch?v=Dsclxwxdfvo
+8/16/2021\tBHAGAVAT GITA KATHA KIRTAN  ON 14/08/21 ||   HH Haladhara Swāmi Mahārāja\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t1:21:55\thttps://www.youtube.com/watch?v=eGx1Os3N9Jw
+8/16/2021\tBhagvad Gita(2.31)-HH Haladhara Swami Maharaj(15/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:09\thttps://www.youtube.com/watch?v=K8SXTHE1lEQ
+8/18/2021\tBhagavad Gita(2.32)HH Haladhar Swami Maharaj(17/08/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:30:01\thttps://www.youtube.com/watch?v=fB0--k3BLpE
+8/24/2021\tBhagavad Gita(2.31)-HH Haladhara Swami Maharaj(23/8/31)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:21\thttps://www.youtube.com/watch?v=1ZNMu3ubYF4
+8/25/2021\tSrimad Bhagavad-Gita (2.32)-HH Haladhara Swami Maharaj (24/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:17\thttps://www.youtube.com/watch?v=Ul_-Pu_kBJk
+8/26/2021\tBhagavad Gita(2.33)-HH Haladhara Swami Maharaj(25/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:41\thttps://www.youtube.com/watch?v=xyQlK9sT6Hc
+8/27/2021\tBhagavad Gita(2.33)-HH Haladhara Swami Maharaj(26/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:42\thttps://www.youtube.com/watch?v=haRkk5RMqIg
+8/28/2021\tBhagavad Gita(2.34)-HH Haladhara Swami Maharaj(27/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:15\thttps://www.youtube.com/watch?v=Oyn-QRuR6pk
+8/29/2021\tSrimad Bhagavad Gita(2.33)-HH Haladhara Swami (28/8/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:27\thttps://www.youtube.com/watch?v=HI482r7oDSs
+8/30/2021\tBhagavad Gita(2.35)  ||  HH Haladhara Swami Maharaj (29/08/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:07:42\thttps://www.youtube.com/watch?v=BO-WNongxDk
+9/3/2021\tBhagavad Gita(2.35)  ||  HH Haladhara Swāmi Mahārāja (02/09/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:04:29\thttps://www.youtube.com/watch?v=_lIo51BhZB8
+9/4/2021\tBhagavad Gita(2.35)-HH Haladhara Swami Maharaj(3/9/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:03\thttps://www.youtube.com/watch?v=AZkcmEEqlww
+9/5/2021\tBhagavad Gita(2.36)HH Haladhar Swami Maharaj(04/09/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:28\thttps://www.youtube.com/watch?v=K6TT-r--3q8
+9/6/2021\tBhagavad Gita(2.38)HH Haladhar Swami Maharaj(05/09/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:23\thttps://www.youtube.com/watch?v=OEvqlaaH-XA
+9/7/2021\tBhagavad Gita(2.39)HH Haladhar Swami Maharaj(06/09/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:59\thttps://www.youtube.com/watch?v=gJRl3bGlyZE
+9/10/2021\tBhagavad Gita(2.48)-HH Haladhara Swami Maharaj(9/9/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:45:58\thttps://www.youtube.com/watch?v=igpCOLvPRRs
+9/11/2021\tBhagavad Gita(2.49)-HH Haladhara Swami Maharaj(10/9/21)Topic-Sadhu -Last mercy of Krsna personified\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:40:40\thttps://www.youtube.com/watch?v=4YI7jLe-Ov8
+9/12/2021\tBhagavad Gita(2.39)-HH Haladhara Swami Maharaj(11/09/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:06\thttps://www.youtube.com/watch?v=S3tfnv41jZ8
+9/13/2021\tSrimad Bhagavad Gita(2.39)-HH Haladhara Swami Maharaj(12/09/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:01:47\thttps://www.youtube.com/watch?v=AAqhMheUHUU
+9/16/2021\tBhagavad Gita(2.41)-HH Haladhara Swami Maharaj(15/09/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:03:03\thttps://www.youtube.com/watch?v=qIP93Z-xfJM
+9/17/2021\tBhagavad Gita(2.41)-HH Haladhara Swami Maharaj(16/09/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:07\thttps://www.youtube.com/watch?v=lVyX_U4VI98
+9/18/2021\tBhagavad Gita(2.41)-HH Haladhara Swami Maharaj(17/9/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:09\thttps://www.youtube.com/watch?v=DHZcpgreU7U
+9/19/2021\tBhagavad Gita(2.41)-HH Haladhara Swami Maharaj(18/9/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:35\thttps://www.youtube.com/watch?v=8Y-8VwZH4uA
+9/23/2021\tBHAGAVAT GITA (VIBHUTI YOGA) ||  HH  Haladhara Swāmi Mahārāja ||  22/09/21\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:06:00\thttps://www.youtube.com/watch?v=trQAPfWinkA
+9/24/2021\tBHAGAVAT GITA (VIBHUTI YOGA) ||  HH  Haladhara Swāmi Mahārāja || 23/09/21\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t1:03:15\thttps://www.youtube.com/watch?v=T42xzPftgYo
+10/7/2021\tBhagavad Gita(2.41)-HH Haladhara Swami Maharaj(6/10/21)Topic:-Symptoms of Kanistha adhikari\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:14:32\thttps://www.youtube.com/watch?v=0W3dys6JKzs
+10/8/2021\tBhagavad Gita(2.42)-HH Haladhara Swami Maharaj(7/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:59\thttps://www.youtube.com/watch?v=Kqa-e8DG2CQ
+10/9/2021\tBhagavad Gita(2.41)HH Haladhar Swami Maharaj(08/10/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:47\thttps://www.youtube.com/watch?v=q1LJWTrqFkI
+10/10/2021\tBhagavad Gita(2.42)-HH Haladhara Swami Maharaj(9/10/21)Topic:-ଭୋଗୀ ଭକ୍ତ ହୋଇପାରିବ ନାହିଁ l\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:09:53\thttps://www.youtube.com/watch?v=yr8RTywwGFg
+10/11/2021\tBhagavad Gita(2.42) || HH Haladhara Swami (10/10/21)Topic-ଗୁରୁ ଙ୍କ ବୁଦ୍ଧି ରେ ଚାଲିଲେ ବୁଦ୍ଧି ସ୍ଥିର ହୁଏ\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:26:24\thttps://www.youtube.com/watch?v=AjBQSMd1rXc
+10/12/2021\tSrimad Bhagavat Gita(2.43)  ||  HH Haladhar Swāmi Mahārāja (11/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:37\thttps://www.youtube.com/watch?v=3BwAV8gcKkE
+10/13/2021\tBhagavad Gita(2.44)-HH Haladhara Swami Maharaj(12/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:59\thttps://www.youtube.com/watch?v=AuGGv1Hm5eE
+10/14/2021\tBhagavad Gita(2.44) ||  HH Haladhara Swami Maharaj (13/10/21) Topic:-Reason of  unsteady mind.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:39:56\thttps://www.youtube.com/watch?v=W3WoyyEdoCU
+10/15/2021\tBhagavad Gita (2.45)  || HH Haladhara Swāmi Mahārāja (14/10/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:29:07\thttps://www.youtube.com/watch?v=4QoAha3LStk
+10/16/2021\tSrimad Bhagavad Gita (2.44) || HH Haladhara Swāmi Maharaja (15/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:38:27\thttps://www.youtube.com/watch?v=JLWKAFApa6g
+10/17/2021\tBhagavad Gita (2.44) || HH Haladhara Swami Maharaja (16/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:25:59\thttps://www.youtube.com/watch?v=N9G6DofVGVo
+10/18/2021\tBhagavad Gita (2.45) || HH Haladhara Swāmi Maharaja (17/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:23:55\thttps://www.youtube.com/watch?v=yrC70JJn3gs
+10/20/2021\tBhagavad Gita(2.45)-HH Haladhara Swami Maharaj(19/10/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:37:30\thttps://www.youtube.com/watch?v=ML6C488D5Zk
+11/1/2021\tGopi Gita\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:07:04\thttps://www.youtube.com/watch?v=YCKLoBe8Co0
+11/21/2021\tBhagvad Gita(2.46) (Language - Hindi) || HH Haladhara Swami Maharaj (20.11.2021)\tHH Haladhara Swami Maharaj\tHindi\tlive\t\t1:08:14\thttps://www.youtube.com/watch?v=K9trIv2oZVg
+11/22/2021\tBhagavad Gita(2.46) (Language - Hindi) ||  HH Haladhara Swami Maharaj (21/11/2021)\tHH Haladhara Swami Maharaj\tHindi\tlive\t\t1:08:30\thttps://www.youtube.com/watch?v=XBsVtdc3ayQ
+11/23/2021\tBhagavad Gita(2.46) (Language - Hindi)  ||  HH Haladhara Swami Maharaj (22/11/21)\tHH Haladhara Swami Maharaj\tHindi\tlive\t\t1:06:51\thttps://www.youtube.com/watch?v=3C58t2wpT2k
+11/26/2021\tBhagvab Gita(2.46)-HH Haladhara Swami Maharaj(25/11/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:49\thttps://www.youtube.com/watch?v=VQQr5HV62yE
+11/27/2021\tBhagavad Gita(2.46)HH Haladhar Swami Maharaj(26/11/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:07:15\thttps://www.youtube.com/watch?v=y6xz2YLwdbs
+11/28/2021\tBhagavad Gita(2.47)-HH Haladhara Swami Maharaj(27/11/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:13:52\thttps://www.youtube.com/watch?v=9pZCXIlJZgc
+11/29/2021\tBhagavad Gita(2.47)-HH Haladhara Swami Maharaj(28/11/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:34\thttps://www.youtube.com/watch?v=iMmHy8vWwtM
+11/30/2021\tBhagavad Gita (2.48) HH Haladhar Swami Maharaj(29/11/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:54\thttps://www.youtube.com/watch?v=HcKkAZ-pSz8
+12/1/2021\tBhagavad Gita(2.49)-HH Haladhara Swami Maharaj(30/11/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:05:39\thttps://www.youtube.com/watch?v=cCm0IUmWAsY
+12/4/2021\tBhagavad Gita(2.50)(AUDIO) ||  HH Haladhara Swami Maharaj (02/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:11:39\thttps://www.youtube.com/watch?v=8NJPyy92dN8
+12/4/2021\tBhagavad Gita(2.51)-HH Haladhara Swami Maharaj(3/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:24:25\thttps://www.youtube.com/watch?v=9DS-jwfRsKE
+12/7/2021\tBhagavad Gita(2.52)-HH Haladhara Swami Maharaj(6/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:30:55\thttps://www.youtube.com/watch?v=g9q_sNWxXPo
+12/15/2021\tCELEBRATING THE APPEARANCE OF SRIMAD BHAGAVAT GITA\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t2:27:07\thttps://www.youtube.com/watch?v=xAsKFKdPnV0
+12/17/2021\tBhagavad Gita(2.53)-HH Haladhara Swami Maharaj(16/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:10:01\thttps://www.youtube.com/watch?v=A7Jad3BVq54
+12/18/2021\tBhagavad Gita(2.53)-HH Haladhara Swami Maharaj(17/12/21)ବିଷୟ-ନିର୍ଭରତା ହେଲେ ନିଶ୍ଚଳତା ବୁଦ୍ଧି ହେବ।\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:05:46\thttps://www.youtube.com/watch?v=0D4a_JnNZjg
+12/19/2021\tBhagavad Gita(2.53)-HH Haladhara Swami Maharaj(18/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:45\thttps://www.youtube.com/watch?v=jDvWfnSgcGc
+12/22/2021\tBhagavad Gita(HINDI)  || HH Haladhara Swami Maharaj (21/12/21)\tHH Haladhara Swami Maharaj\tHindi\tlive\t\t0:12:22\thttps://www.youtube.com/watch?v=FJOpMM8PfNw
+12/22/2021\tBhagavadgita(2.55)HH Haladhar swami Maharaj(21/12/2021)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:21:15\thttps://www.youtube.com/watch?v=QxOYXagxNZI
+12/30/2021\tBhagavad Gita(2.54-55)-HH Haladhara Swami Maharaj(29/12/21)Topic- 2 qualities of a sthita prajna\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:46\thttps://www.youtube.com/watch?v=PHY_OFphTPY
+12/31/2021\tBhagavad Gita(2.55)-HH Haladhara Swami Maharaj(30/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:51\thttps://www.youtube.com/watch?v=QnEViqxP8gA
+1/1/2022\tBhagavad Gita(2.57)HH Haladhar Swami Maharaj(31/12/21)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:07:36\thttps://www.youtube.com/watch?v=TguWEZRMRh8
+1/7/2022\tSrimad Bhagavad Gita(2.58)-HH Haladhara Swami Maharaj(6/01/2022)ବିଷୟ-ଆଧ୍ୟାତ୍ମିକ ପ୍ରଗତି ର ମାନଦଣ୍ଡ କଣ?\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:10:30\thttps://www.youtube.com/watch?v=bs_ibDkYTcU
+1/8/2022\tBhagavad Gita(2.58) HH Haladhar Swami Maharaj(08/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:19:08\thttps://www.youtube.com/watch?v=qfg23jrOWqk
+1/8/2022\tBhagavad Gita(2.58,59)HH Haladhar Swami Maharaj(07/01/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:04\thttps://www.youtube.com/watch?v=bRP83D3brtg
+1/11/2022\tBhagavad Gita(2.60 Hindi)-HH Haladhara Swami Maharaj(10/01/22)\tHH Haladhara Swami Maharaj\tHindi\tlive\t\t0:07:18\thttps://www.youtube.com/watch?v=9m7nyRUHDHw
+1/11/2022\tBhagavad Gita(2.60)-HH Haladhara Swami Maharaj(10/01/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:17:33\thttps://www.youtube.com/watch?v=Wo_dcjDTbdg
+1/12/2022\tBhagavad Gita(2.60)-HH Haladhara Swami Maharaj(11/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:01:45\thttps://www.youtube.com/watch?v=XRRXKKosrWk
+1/13/2022\tBhagavad Gita(2.61)-HH Haladhara Swami Maharaj(12/01/2022) Topic- Easy way to control the senses.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:31\thttps://www.youtube.com/watch?v=-b7U0deeHJ0
+1/14/2022\tBhagavad Gita(2.61)-HH Haladhara Swami Maharaj(13/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:26\thttps://www.youtube.com/watch?v=31oWW0WJjKM
+1/15/2022\tBhagavad Gita(2.61)-HH Haladhara Swami Maharaj(14/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:23:32\thttps://www.youtube.com/watch?v=ZzUSUbV75ZQ
+1/16/2022\tBhagavad Gita(2.61)-HH Haladhara Swami Maharaj(15/1/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:15:28\thttps://www.youtube.com/watch?v=wiy9FOXrTEM
+1/18/2022\tBhagavad Gita(2.64)-HH Haladhara Swami Maharaj(17/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:03\thttps://www.youtube.com/watch?v=PcgAPe6juV8
+1/19/2022\tBhagavad Gita (2.64)-HH Haladhara Swami Maharaj(18/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:10:36\thttps://www.youtube.com/watch?v=-jl0y2CRV7c
+1/20/2022\tBhagavad Gita(2.65)-HH Haladhara Swami Maharaj(19/1/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:34\thttps://www.youtube.com/watch?v=GpoMARAsWIM
+1/21/2022\tBhagavad Gita(2.65)-HH Haladhara Swami Maharaj(20/1/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:14:08\thttps://www.youtube.com/watch?v=gNE3JDI11oo
+1/22/2022\tBhagavad Gita(2.66)-HH Haladhara Swami Maharaj(21/01/2022)ବିଷୟ:-ଇନ୍ଦ୍ରିୟ ସଞ୍ଜମ\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:08:01\thttps://www.youtube.com/watch?v=u0XQ2EbQ3Ug
+1/22/2022\tBhagavad Gita(2.68)-HH Haladhara Swami Maharaj(22/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:20:45\thttps://www.youtube.com/watch?v=QEgXnyrjMic
+1/25/2022\tBhagavad Gita(2.69)-HH Haladhara Swami Maharaj(24/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:15:30\thttps://www.youtube.com/watch?v=QVt9lnH-gyQ
+2/1/2022\tBhagavad Gita(2.70)- HH Haladhara swami Maharaj(31/01/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:26:18\thttps://www.youtube.com/watch?v=5sTQwZ-RxSQ
+2/2/2022\tBhagavad Gita(2.71)-HH Haladhara Swami Maharaj(1/2/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:23\thttps://www.youtube.com/watch?v=9ewR1NER2iU
+2/4/2022\tBhagavad Gita(2.71)-HH Haladhara Swami Maharaj(3/2/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:23\thttps://www.youtube.com/watch?v=PtywBckjArw
+2/7/2022\tBhagavad Gita(2.72)-HH Haladhara Swami Maharaj(6/2/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:08:40\thttps://www.youtube.com/watch?v=R3FhBotpXOQ
+2/8/2022\tBhagavad Gita (3.1)-HH Haladhara Swami Maharaj (7/2/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:16\thttps://www.youtube.com/watch?v=3bIWgaDPI4c
+2/16/2022\tBhagavad Gita (3.1)(English)HH Haladhar Swami Maharaj(15/02/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:10:01\thttps://www.youtube.com/watch?v=x6-I7Chd7Us
+2/18/2022\tBhagavad Gita(3.2) HH Haladhar Swami Maharaj(17/02/2022\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:33\thttps://www.youtube.com/watch?v=u9gGjMpkEbM
+2/19/2022\tBhagavad Gita(3.3) HH Haladhara Swami Maharaj (18/02/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:16:32\thttps://www.youtube.com/watch?v=Sh5XNSbqCOQ
+3/8/2022\tBhagavad Gita(3.3)HH Haladhar Swami Maharaj(07/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:10:44\thttps://www.youtube.com/watch?v=MpZE9Vd59HE
+3/9/2022\tBhagavad Gita(3.5)HH Haladhar Swami Maharaj(08/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:41\thttps://www.youtube.com/watch?v=gbM5bzTf80E
+3/20/2022\tBhagavad Gita(3.5)HH Haladhar Swami Maharaj(19/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:44\thttps://www.youtube.com/watch?v=ZPaQt7FoE8E
+3/22/2022\tBhagavad Gita(3.7)-HH Haladhara Swami Maharaj(21/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:20:50\thttps://www.youtube.com/watch?v=h49dyq2pe2A
+3/23/2022\tBhagavad Gita(3.7)-HH Haladhara Swami Maharaj (22/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:02:02\thttps://www.youtube.com/watch?v=3TPHFtnwZrk
+3/24/2022\tBhagavad Gita (3.8)-HH Haladhara Swami Maharaj (23/03/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:02:33\thttps://www.youtube.com/watch?v=CwhCS6Cdo3c
+4/5/2022\tBhagavad Gita(3.8)HH Haladhar Swami Maharaj(04/04/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:23:31\thttps://www.youtube.com/watch?v=GCiWUcYPI40
+4/6/2022\tBhagavad Gita (3.9)-HH Haladhara Swami Maharaj (5/4/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:45\thttps://www.youtube.com/watch?v=rnmft7BrMpI
+4/8/2022\tBhagavad Gita (3.9-10)-HH Haladhara Swami Maharaj (7/4/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:23:29\thttps://www.youtube.com/watch?v=cbZ7_MQCSJw
+4/9/2022\tBhagavad Gita (3.10)-HH Haladhara Swami Maharaj (8/4/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:02:09\thttps://www.youtube.com/watch?v=7Sfye3UEWCY
+4/12/2022\tBhagavad Gita (3.10)-HH Haladhara Swami Maharaj (11/4/22)Topic-mood of DG worship.Bhojana Vs Bhajan.\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:49\thttps://www.youtube.com/watch?v=mBG5nv6mSYM
+4/19/2022\tBhagavad Gita(3.10)-HH Haladhara Swami Maharaj (18/4/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:23:59\thttps://www.youtube.com/watch?v=AuU0rM5c480
+4/20/2022\tBhagavad Gita (3.11)-HH Haladhara Swami Maharaj (19/4/22) Topic- Importance of honoring mahaprasaad\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:06:36\thttps://www.youtube.com/watch?v=JHzUx3MdlY4
+4/21/2022\tBhagavad Gita (3.13-14)-HH Haladhara Swami Maharaj (20/4/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:03:09\thttps://www.youtube.com/watch?v=BAOrbfXU8Kk
+4/22/2022\tBhagavad Gita(3.14)HH Haladhar Swami Maharaj (21/04/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:05:13\thttps://www.youtube.com/watch?v=TvA2GnuF0ww
+4/23/2022\tBhagavad Gita (3.15)-HH Haladhara Swami Maharaj (22/4/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:10:48\thttps://www.youtube.com/watch?v=fFGXY8MpunA
+4/24/2022\tBhagavad Gita (3.15)HH Haladhar Swami Maharaj(23/04/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:06\thttps://www.youtube.com/watch?v=ts30NwVfNiw
+4/27/2022\tSREEMAD BHAGABAT GITA(3:16)HH HALADHARA SWAMI MAHARAJ\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:06\thttps://www.youtube.com/watch?v=MUVmSrI3OKs
+4/28/2022\tBhagavad Gita(3.17)HH Haladhar Swami Maharaj(27/04/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:05:30\thttps://www.youtube.com/watch?v=R2CS-AkA6Tg
+4/29/2022\tSrimad Bhagavat Gita(3.17)HH  Haladhar Swami Maharaj(28/4/22\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:01:00\thttps://www.youtube.com/watch?v=OVMXTgtBeIE
+4/30/2022\tBhagavad Gita(3.17)(English)HH Haladhar Swami Maharaj(29/04/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:48\thttps://www.youtube.com/watch?v=-OW3P44uBkA
+5/3/2022\tSrimad Bhagavad Gita(3.18)-HH Haldhara Swami Maharaj(2/5/22) Topic- Nature of a self-realized person\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:04:06\thttps://www.youtube.com/watch?v=4yTdgmAi308
+5/18/2022\tBhagavad-Gita (3.19)-HH Haladhara Swami Maharaj (17/5/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:09:53\thttps://www.youtube.com/watch?v=94DaTkqF2iU
+5/19/2022\tBhagavad Gita (3.20)-HH Haladhara Swami Maharaj (18/5/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:12:59\thttps://www.youtube.com/watch?v=1yV2oVKcDHg
+5/20/2022\tBhagavad-Gita (3.20)-HH Haladhara Swami Maharaj (19/5/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:02:27\thttps://www.youtube.com/watch?v=JLrVmwGW7jI
+6/12/2022\tBhagavad Gita (3.20)-HH Haladhara Swami Maharaj (11/6/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:01:08\thttps://www.youtube.com/watch?v=5DqQY-Y9rR4
+6/13/2022\tBhagavad Gita(3.20)-HH Haladhar Swami Maharaj(13/06/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:11:47\thttps://www.youtube.com/watch?v=i9CvCUthpxk
+6/16/2022\tBhagavad Gita (3.21)-HH Haladhara Swami Maharaj (15/06/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:03\thttps://www.youtube.com/watch?v=f-OMkel0jaw
+6/17/2022\tBhagavad Gita 3.23)HH Haladhar Swami Maharaj(16/06/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:07\thttps://www.youtube.com/watch?v=CpibOgc1Tus
+6/18/2022\tBhagavad Gita (3.23)-HH Haladhara Swami Maharaj (17/5/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:23\thttps://www.youtube.com/watch?v=eqkneQtjJxA
+7/13/2022\tBhagavad Gita 3.24)HH Haladhar Swami Maharaj(12/07/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:20:45\thttps://www.youtube.com/watch?v=QzfTyHlTK_Q
+7/15/2022\tBhagavad Gita(3.25)HH Haladhar Swami Maharaj(14/07/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:50\thttps://www.youtube.com/watch?v=95JJ1GSdNOY
+7/16/2022\tBhagavad Gita(3.25)HH Haladhar Swami Maharaj(15/07/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:23:44\thttps://www.youtube.com/watch?v=DdNALjsWTQM
+7/20/2022\tଶ୍ରୀମଦ୍ ଭଗବତ ଗୀତା (୩.୨୮) [] Bhagavad Gita [] ମୌଳିକ ରୂପରେ [] HH Haladhara Swami Maharaja\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:02:50\thttps://www.youtube.com/watch?v=TtIsNhB6jJU
+7/21/2022\tଶ୍ରୀମଦ୍ ଭଗବତ ଗୀତା (୩.୨୯)[] Bhagavad Gita [] ମୌଳିକ ରୂପରେ [] HH Haladhara Swami Maharaja\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:03:45\thttps://www.youtube.com/watch?v=zdN2VgvU1Bc
+7/22/2022\tଶ୍ରୀମଦ୍ ଭଗବତ ଗୀତା (୩.୩୦)[] Bhagavad Gita [] ମୌଳିକ ରୂପରେ [] HH Haladhara Swami Maharaja\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:11:18\thttps://www.youtube.com/watch?v=lCUaGkOnXlg
+7/23/2022\tଶ୍ରୀମଦ୍ ଭଗବତ ଗୀତା (୩.୩୧)[] Bhagavad Gita [] ମୌଳିକ ରୂପରେ [] HH Haladhara Swami Maharaja\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:05:07\thttps://www.youtube.com/watch?v=IkKTg6WywUo
+7/24/2022\tBhagavad Gita(3.32)HH Haladhar Swami Maharaj(23/07/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:06:28\thttps://www.youtube.com/watch?v=QX-A0Bvo0EE
+7/26/2022\tBhagavad Gita 3.33 || HH Haladhara Swami Maharaj\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:00:54\thttps://www.youtube.com/watch?v=Pyrf_9kBJNU
+7/27/2022\tBhagavad Gita(3.34)HH Haladhar Swami Maharaj(26/07/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:05:14\thttps://www.youtube.com/watch?v=WoAu8vjMdIM
+8/2/2022\tBhagavad Gita(3.35)HH Haladhar Swami Maharaj (01/08/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:09:35\thttps://www.youtube.com/watch?v=7rWwoulMDxo
+8/3/2022\tBhagavad Gita(3.36)-HH Haladhara Swami Maharaj (2/8/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:04:09\thttps://www.youtube.com/watch?v=NY2b5TKSPd8
+8/4/2022\tBhagavad Gita (3.37)-HH Haldhara Swami Maharaj (3/8/2022) Topic - How to win over lust\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:56:38\thttps://www.youtube.com/watch?v=yJch7OUOEAQ
+8/5/2022\tBhagavad Gita (3.38)-HH Haladhara Swami Maharaj (4/8/2022)Topic-Degree of lust\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:55\thttps://www.youtube.com/watch?v=FF5avPmzuAw
+8/6/2022\tBhagavad Gita (3.39) [] HH Haladhara Swami Maharaj [] 5/8/2022\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:05:38\thttps://www.youtube.com/watch?v=fBqM9kjoGUU
+8/7/2022\tSrimad Bhagavat Gita ( 3.40)HH Haladhara Swami Maharaj (06/08/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:01:22\thttps://www.youtube.com/watch?v=_MJbUJhkfko
+8/31/2022\tBhagavad Gita(3.42) HH Haladhar Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:04:46\thttps://www.youtube.com/watch?v=PCuURk88s-U
+8/31/2022\tBhagavad Gita-HH Haladhara Swami Maharaj (30/08/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:03:13\thttps://www.youtube.com/watch?v=iNVFyf4kNvw
+9/1/2022\tBhagavad Gita (3.42)-HH Haldhara Swami Maharaj\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:01:42\thttps://www.youtube.com/watch?v=es_j1_X9TmU
+9/2/2022\tBhagavad Gita (3.43) HH Haldhar Swami Maharaj (01/09/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:50:40\thttps://www.youtube.com/watch?v=KFC8Tec50Ug
+9/16/2022\tBhagvad Gita (4.1)--HH Haladhara Swami Maharaj (15/9/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:20:39\thttps://www.youtube.com/watch?v=gPKAAor8O0g
+9/17/2022\tBhagavad Gita (4.1)- HH Haldhar Swami Maharaj (16/09/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:56:30\thttps://www.youtube.com/watch?v=1XBdeZAuQPY
+9/28/2022\tBhagavad Gita(4.2)(HH Haladhar Swami Maharaj(27/09/2022)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:43\thttps://www.youtube.com/watch?v=3Asc-tlsw4M
+9/29/2022\tBhagavad Gita (4.4)-HH Haladhara Swami Maharaj (28/9/22)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:00:24\thttps://www.youtube.com/watch?v=zQxLSQLEPt4
+9/29/2022\tBhagavad Gita (4.5) in Odia - HH Haladhara Swami Maharaja (29/09/2022)\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:09:19\thttps://www.youtube.com/watch?v=S0NbV_8FV4c
+9/30/2022\tBhagavad Gita (4.6) in Odia - HH Haladhara Swami Maharaja (29/09/2022)\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:04:44\thttps://www.youtube.com/watch?v=_fTPh8ezQkY
+10/2/2022\tBhagavad Gita (11.23) in Odia - HH Haladhara Swami Maharaja - ISKCON Jajapur - 02/10/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON Jajapur\t1:22:10\thttps://www.youtube.com/watch?v=HYZSwoacPXY
+10/2/2022\tBhagavad Gita 4.6 - part 2 - HH Haladhara Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:09:45\thttps://www.youtube.com/watch?v=c13KC01BMW8
+10/4/2022\tBhagavad Gita (4.7) - HH Haladhara Swami Maharaja (4/10/2022)\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:11:28\thttps://www.youtube.com/watch?v=uVhHZ8oQlSE
+10/5/2022\tBhagavad Gita (4.8) in Odia - HH Haladhara Swami Maharaja (5/10/2022)\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:05:28\thttps://www.youtube.com/watch?v=OeZPOUipxso
+10/7/2022\tBhagavad Gita (4.9) in Odia - HH Haladhara Swami Maharaja (6/10/2022)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:02:35\thttps://www.youtube.com/watch?v=N0t3616iPLs
+10/8/2022\tBhagavad Gita (4.10) | Part-2 | in Odia | HH Haladhara Swami Maharaja (8/10/2022)\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:09:00\thttps://www.youtube.com/watch?v=RsnIOWcPHtA
+10/8/2022\tBhagavad Gita (4.10) in Odia - HH Haladhara Swami Maharaja (7/10/2022)\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:19:03\thttps://www.youtube.com/watch?v=cX9-EP0rqvo
+10/8/2022\tBhagavad Gita 4.4 in Odia। HH Haladhara Swami Maharaja\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:00:29\thttps://www.youtube.com/watch?v=U_yF_HPX9aw
+10/24/2022\tBhagavad-Gita Recitation | 13th Chapter | HH Haladhara Swāmī Mahāraja\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:06:09\thttps://www.youtube.com/watch?v=oQYMmpmhBYk
+11/17/2022\tBhagavad Gita 4.11 | Odia | HH Haladhara Swami Maharaja | 17/11/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:10:31\thttps://www.youtube.com/watch?v=93FLOND2r4U
+11/19/2022\tBhagavad Gita 4.12 | Odia | HH Haladhara Swami Maharaja | 18/11/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:05:23\thttps://www.youtube.com/watch?v=yovPx8n8S30
+11/20/2022\tBhagavad Gita 4.13 | Odia | HH Haladhara Swami Maharaja | 19/11/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:16:14\thttps://www.youtube.com/watch?v=fs7kc2pSy80
+11/21/2022\tBhagavad Gita 4.14 | Odia | HH Haladhara Swami Maharaja | 20/11/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:10:53\thttps://www.youtube.com/watch?v=o8qZXaFEKaw
+11/22/2022\tBhagavad Gita 4.15 | Odia | HH Haladhara Swami Maharaja | 21/11/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:10:50\thttps://www.youtube.com/watch?v=CiIrDcsgCNE
+12/6/2022\tBhagavad Gita 4.16 | Odia | HH Haladhara Swami Maharaja | 5/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:04:56\thttps://www.youtube.com/watch?v=7mJpYzCM_Vk
+12/9/2022\tBhagavad Gita 4.17 | Odia | HH Haladhara Swami Maharaja | 8/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:07:11\thttps://www.youtube.com/watch?v=hlFzal0pwOg
+12/18/2022\tBhagavad Gita 4.18 | Odia | HH Haladhara Swami Maharaja | 18/12/2022\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:23:04\thttps://www.youtube.com/watch?v=dwqvs1pocr0
+12/20/2022\tBhagavad Gita 4.20 | Odia | HH Haladhara Swami Maharaja | 19/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:05:58\thttps://www.youtube.com/watch?v=kLSZWxlmny8
+12/20/2022\tBhagavad Gita 4.21 | Odia | HH Haladhara Swami Maharaja | 20/12/2022\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:59:37\thttps://www.youtube.com/watch?v=uSCAWJrHL9I
+12/22/2022\tBhagavad Gita 4.22 | Odia | HH Haladhara Swami Maharaja | 21/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:05:34\thttps://www.youtube.com/watch?v=kZcDlCqBvqA
+12/22/2022\tBhagavad Gita 4.23 | Odia | HH Haladhara Swami Maharaja | 22/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:07:22\thttps://www.youtube.com/watch?v=KwwlHXpaXh4
+12/24/2022\tBhagavad Gita 4.24 | Odia | HH Haladhara Swami Maharaja | 23/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:10:56\thttps://www.youtube.com/watch?v=Qpxw-5uGqqg
+12/24/2022\tBhagavad Gita 4.25 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:10:21\thttps://www.youtube.com/watch?v=ABRRNuRd1aM
+12/28/2022\tBhagavad Gita 4.26 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:08:46\thttps://www.youtube.com/watch?v=qhN20FPm3Dg
+12/29/2022\tBhagavad Gita 4.27 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:12:24\thttps://www.youtube.com/watch?v=bpq6ABfumWA
+12/31/2022\tBhagavad Gita 4.28 | Odia | HH Haladhara Swami Maharaja | 30/12/2022\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:05:49\thttps://www.youtube.com/watch?v=bn2vN99yYU4
+1/2/2023\tBhagavad Gita 4.29 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:22:52\thttps://www.youtube.com/watch?v=P6ouycV_PHw
+1/4/2023\tBhagavad Gita 4.29\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:21:32\thttps://www.youtube.com/watch?v=J_Fm51ON2p4
+1/4/2023\tBhagavad Gita 4.30 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:00:56\thttps://www.youtube.com/watch?v=HGtX-6s_n0g
+1/8/2023\tBhagavad Gita 4.32 | Odia | HH Haladhara Swami Maharaja |\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:19:47\thttps://www.youtube.com/watch?v=pY4t31FOAMk
+1/22/2023\tBhagavad Gita 4.19 | Odia | HH Haladhara Swami Maharaja | 03/01/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:10:21\thttps://www.youtube.com/watch?v=EbyqkmGTb_E
+1/22/2023\tBhagavad Gita 4.34 | Odia | HH Haladhara Swami Maharaja | 21/01/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:11:58\thttps://www.youtube.com/watch?v=ZzJ4SWhk1CE
+1/23/2023\tBhagavad Gita 4.35 | Odia | 22/01/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:04:58\thttps://www.youtube.com/watch?v=T8v_cEWUw3M
+1/24/2023\tBhagavad Gita 4.36 | Odia | HH Haladhara Swami Maharaja | 23/01/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t0:10:36\thttps://www.youtube.com/watch?v=Z2F1SLrMZho
+3/3/2023\tBhagavad Gita Recitation | 9th Chapter | HH Hladhara Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:06:20\thttps://www.youtube.com/watch?v=rxWWGNgJ2D0
+4/5/2023\tBhagavad Gita | 4.37 | HH Haladhara Swami Maharaja | 3/3/2023\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:06:11\thttps://www.youtube.com/watch?v=LqHHxXeGRXc
+5/19/2023\tBhagavad Gita 4.38 | Hindi | HH Haladhara Swami Maharaj | ISKCON Pattamundai | 18/05/2023\tHH Haladhara Swami Maharaj\tHindi\tstandard\tISKCON PATTAMUNDAI\t1:08:11\thttps://www.youtube.com/watch?v=wSmEM4BsgtM
+5/19/2023\tBhagavad Gita 4.39 | Hindi | HH Haladhara Swami Maharaj | ISKCON Pattamundai | 19/05/2023\tHH Haladhara Swami Maharaj\tHindi\tstandard\tISKCON PATTAMUNDAI\t1:06:32\thttps://www.youtube.com/watch?v=g7KO2jYl81Y
+6/7/2023\tBhagavad Gita | 4.40 | HH Haladhara Swami Maharaja | 7/6/2023\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:20:25\thttps://www.youtube.com/watch?v=4ImiEYO3Hdg
+6/24/2023\tBhagavad Gita | 4.41 | HH Haladhara Swami Maharaja | 22/6/2023\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t0:11:20\thttps://www.youtube.com/watch?v=81I6oOCct3U
+6/24/2023\tBhagavad Gita | 4.42 | HH Haladhara Swami Maharaja | 23/6/2023\tHH Haladhara Swami Maharaj\tEnglish\tstandard\t\t1:05:34\thttps://www.youtube.com/watch?v=FVSysdt8znQ
+6/25/2023\tBhagavad Gita | 5.1-2 | ଓଡ଼ିଆ | HH Haladhara Swami Maharaja | 23/6/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:03:18\thttps://www.youtube.com/watch?v=XkpAjnUJITg
+6/26/2023\tBhagavad Gita | 5.3 | ଓଡ଼ିଆ | HH Haladhara Swami Maharaja | 25/6/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\t\t1:02:39\thttps://www.youtube.com/watch?v=QUucrQN_Fd8
+6/30/2023\tBhagavad Gita | 5.5 | हिंदी | ISKCON Pattamundai | 27/06/23\tHH Haladhara Swami Maharaj\tHindi\tstandard\tISKCON PATTAMUNDAI\t0:52:20\thttps://www.youtube.com/watch?v=HQuuUGI_zoE
+7/28/2023\tBhagavad Gita | 5.6 | ISKCON Pattamundai | 27/07/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:58:51\thttps://www.youtube.com/watch?v=1wQHI_otHos
+8/5/2023\tBhagavad Gita | 5.7 | Odia | ISKCON Pattamundai | 05/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:51:24\thttps://www.youtube.com/watch?v=kQ7jKR2Kwy8
+8/7/2023\tBhagavad Gita | 5.8-9 | Odia | ISKCON Pattamundai | 06/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:55:18\thttps://www.youtube.com/watch?v=tPYP9ut6lbg
+8/8/2023\tBhagavad Gita | 5.10 | Odia | ISKCON Pattamundai | 07/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:58:10\thttps://www.youtube.com/watch?v=K60h0wnBbbg
+8/9/2023\tBhagavad Gita | 5.10 | Part 2 | Odia | ISKCON Pattamundai | 08/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:59:52\thttps://www.youtube.com/watch?v=dgLHjBxgJd4
+8/11/2023\tBhagavad Gita | 5.10 | Part 3 | Odia | ISKCON Pattamundai | 09/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t1:13:15\thttps://www.youtube.com/watch?v=GAbjC4NAgnY
+8/11/2023\tBhagavad Gita | 5.11 | Odia | ISKCON Pattamundai | 10/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t1:05:21\thttps://www.youtube.com/watch?v=M_dcqRvhDFo
+8/11/2023\tBhagavad Gita | 5.12 | ISKCON Pattamundai | 11/08/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t1:01:31\thttps://www.youtube.com/watch?v=h6BH36hfkmw
+8/19/2023\tBhagavad Gita 5.13 | Odia\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t0:59:16\thttps://www.youtube.com/watch?v=bY7KtZqUVNo
+8/20/2023\tBhagavad Gita | 5.13 | Odia\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:01:34\thttps://www.youtube.com/watch?v=uCp4Tgre2k8
+10/7/2023\tBhagavad Gita | 5.14 | ISKCON Pattamundai | 07.10.23\tHH Haladhara Swami Maharaj\tOdia\tlive\tISKCON PATTAMUNDAI\t1:05:42\thttps://www.youtube.com/watch?v=W4tHmXKpHD4
+10/20/2023\tBhagavad Gita | 5.14 | ISKCON Pattamundai | 18.10.23\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t0:01:55\thttps://www.youtube.com/watch?v=Wx6Rm161eyM
+10/21/2023\tBhagavad Gita | 5.18 | ISKCON Pattamundai | 20.10.23\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t0:58:18\thttps://www.youtube.com/watch?v=I4-2lzIog_M
+12/6/2023\tBhagavad Gita Sammilani - 2023 | Puri | 02/12/23\tHH Haladhara Swami Maharaj\tOdia\tstandard\tPuri\t0:52:14\thttps://www.youtube.com/watch?v=7Uh6cWN85JM
+12/12/2023\tBhagavad Gita 5.18 | Odia | ISKCON Pattamundai\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON PATTAMUNDAI\t0:58:18\thttps://www.youtube.com/watch?v=AHCGEA7Jr6c
+12/12/2023\tBhagavad Gita 5.19 | Odia | ISKCON Bhubaneswar | 11/12/2023\tHH Haladhara Swami Maharaj\tOdia\tstandard\tISKCON Bhubaneswar\t1:08:06\thttps://www.youtube.com/watch?v=Q8xrG4MKokE
+12/15/2023\tBhagavad Gita 5.21(Odia) HH Haladhar Swami Maharaj  ISKCON Pattamundai 14/12/23\tHH Haladhara Swami Maharaj\tOdia\tlive\tISKCON PATTAMUNDAI\t1:31:41\thttps://www.youtube.com/watch?v=Og9Q7SIZnPY
+12/16/2023\tCause of unhappiness- Srimad Bhagavad Gita 5.22 (15/12/23)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:34:21\thttps://www.youtube.com/watch?v=Jqv8ZILJg0Y
+12/29/2023\tSrimad Bhagvd Gita 5.23(28/12/23)\tHH Haladhara Swami Maharaj\tOdia\tlive\t\t1:07:55\thttps://www.youtube.com/watch?v=lCoAg3Qidvw
+12/30/2023\tSrimad Bhagavad Gita 5.24  29/12/2023              HH Haladhar Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:02\thttps://www.youtube.com/watch?v=ZY3T6MWflGw
+12/31/2023\tSrimad Bhagavad Gita 5.25 | 30/12/3023  HH Haladhar Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:06:25\thttps://www.youtube.com/watch?v=dD-wYKtRpUI
+2/4/2024\tBhagavad Gita 5.27 HH Haladhar Swami Maharahaj 03/02/2024\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:34\thttps://www.youtube.com/watch?v=D3HnMapVYa8
+4/23/2024\tHH Haladhara Swami Maharaj, Bhagbat Gita 5.29 (22/04/24)\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t0:02:51\thttps://www.youtube.com/watch?v=EXn1-E1gWWk
+5/15/2024\tBhagavad gita 6.2 HH Haladhara Swami Maharaj 14/05/2024\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:27:20\thttps://www.youtube.com/watch?v=G_DpZQBOiFs
+5/16/2024\tBhagavad gita 6.3 (Odia) HH Haladhara Swami Maharaj 15/05/2/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tOdia\tlive\tISKCON PATTAMUNDAI\t1:22:20\thttps://www.youtube.com/watch?v=ZsCqklCCffk
+5/17/2024\tBhagavad Gita 6.4 (Odia) HH Haladhar Swami Maharaj 16/05/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tOdia\tlive\tISKCON PATTAMUNDAI\t1:29:29\thttps://www.youtube.com/watch?v=dcnSwIr0i1U
+6/12/2024\tSrimad Bhagavad Gita 6.6 HH Haladhara Swami Maharahaj 11/06/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:10:00\thttps://www.youtube.com/watch?v=ywFmEbcq-mQ
+6/30/2024\tSrimad Bhagavad Gita 6.9-HH Haladhara Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:08:06\thttps://www.youtube.com/watch?v=lrrEKOs4KRA
+7/1/2024\tSrimad Bhagavad Gita 6.10 (Odia) HH Haladhara Swami Maharaj 30/06/2024 ISKCON Pattamundai\tHH Haladhara Swami Maharaj\tOdia\tlive\tISKCON PATTAMUNDAI\t1:05:47\thttps://www.youtube.com/watch?v=C4LdDFE5Dns
+7/2/2024\tSrimad Bhagavad Gita 6.11HH Haladhara Swami Maharaj 01/07/2024 ISKCON Pattamundai\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:00:20\thttps://www.youtube.com/watch?v=0G2WQlqA7jM
+10/3/2024\tSrimad Bhagavad Gita 6.13-14 ll HH Haladhar Swami Maharaj ll 02/10/2024 ll ISKCON PATTAMUNDAI\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:16:15\thttps://www.youtube.com/watch?v=IqJMw2r_HBI
+10/4/2024\tSrimad Bhagavad Gita 6.15-HH Haladhar Swami Maharaj\tHH Haladhara Swami Maharaj\tEnglish\tlive\t\t1:07:45\thttps://www.youtube.com/watch?v=QpW43niGivQ
+10/11/2024\tSrimad Bhagavad Gita 6.16 HH  Haladhara Swami Maharaj 10/10/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:08:56\thttps://www.youtube.com/watch?v=NBH3_kqToSY
+10/12/2024\tSrimad Bhagavad Gita 6.18 ll HH Haladhara Swami Maharaj ll ISKCON PATTAMUNDAI\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:29:20\thttps://www.youtube.com/watch?v=aixvCQpxS64
+10/13/2024\tSrimad Bhagavad gita 6.18 HH Haladhara Swami Maharaj 12/10/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t0:07:40\thttps://www.youtube.com/watch?v=bV2OvJSOV_Y
+11/2/2024\tSrimad Bhagavad Gita 6.19 HH Haladhara Swami Maharaj 01/11/2024 Iskcon Pattamundai\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t0:02:51\thttps://www.youtube.com/watch?v=hXU_y_LxYYA
+12/19/2024\tSrimad Bhagavad Gita 6.20-23 | HH Haladhara Swami Maharaj | ISKCON Pattamundai | 18/12/2024\tHH Haladhara Swami Maharaj\tEnglish\tlive\tISKCON PATTAMUNDAI\t1:08:12\thttps://www.youtube.com/watch?v=8pP2LpJTzMY`;
+
+const bhagavadGitaHaladharaSwamiVideos = parseTsvVideoRows(bhagavadGitaHaladharaSwamiRaw);
 
 export const videoData = [
   {
@@ -2964,7 +3296,7 @@ export const videoData = [
   {
     id: 53,
     playlistName: "Mood Of Separation",
-    category: ["Chaitanya Charitamrita", "Srimad Bhagavatam"],
+    category: ["Chaitanya Charitamrita"],
     description: "ISKCON Dallas • English • Apr 2025 • Session 1–5",
     language: "English",
     location: "ISKCON Dallas",
@@ -3749,5 +4081,22 @@ export const videoData = [
         description: "15/03/2022 • HH Haladhara Swami Maharaj • ISKCON Bhubaneswar"
       }
     ]
+  },
+  {
+    id: 68,
+    playlistName: "Srimad Bhagavad Gita (HH Haladhara Swami Maharaj)",
+    category: ["Bhagvad Gita"],
+    description: "YouTube playlist • Jun 2021 – Dec 2024 • (Shown under Odia section)",
+    language: "Odia",
+    location: "YouTube",
+    icon: "▶️",
+    thumbnail: "https://img.youtube.com/vi/mNwauTGIAlo/maxresdefault.jpg",
+    videos: bhagavadGitaHaladharaSwamiVideos
   }
+];
+
+export const cryingSchoolVideoData = [
+  ...cryingSchoolVideoDataEnglish,
+  ...cryingSchoolVideoDataOdia,
+  ...cryingSchoolVideoDataHindi
 ];

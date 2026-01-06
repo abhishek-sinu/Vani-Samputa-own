@@ -8,6 +8,9 @@ import VideoLibrary from './components/VideoLibrary';
 import AudioDetail from './components/AudioDetail';
 import VideoPlaylist from './components/VideoPlaylist';
 import Admin from './components/Admin';
+import Live from './components/Live';
+import CryingSchoolLibrary from './components/CryingSchoolLibrary';
+import CryingSchoolPlaylist from './components/CryingSchoolPlaylist';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -47,6 +50,8 @@ function App() {
               <Link to="/" onClick={closeMobileMenu}>Home</Link>
               <Link to="/audio" onClick={closeMobileMenu}>Audio Lectures</Link>
               <Link to="/video" onClick={closeMobileMenu}>Video Playlists</Link>
+              <Link to="/crying-school" onClick={closeMobileMenu}>Crying School Videos</Link>
+              <Link to="/live" onClick={closeMobileMenu}>Live</Link>
             </nav>
           </div>
         </header>
@@ -58,6 +63,9 @@ function App() {
             <Route path="/audio/:id" element={<AudioDetail />} />
             <Route path="/video" element={<VideoLibrary />} />
             <Route path="/video/:playlistId" element={<VideoPlaylist />} />
+            <Route path="/crying-school" element={<CryingSchoolLibrary />} />
+            <Route path="/crying-school/:playlistId" element={<CryingSchoolPlaylist />} />
+            <Route path="/live" element={<Live />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>

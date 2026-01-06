@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { videoData } from '../data/libraryData';
+import { cryingSchoolVideoData } from '../data/libraryData';
 import './VideoLibrary.css';
 
-function VideoLibrary() {
+function CryingSchoolLibrary() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -75,13 +75,31 @@ function VideoLibrary() {
   };
 
   const languages = [
-    { name: 'Odia', icon: '🕉️', color: '#ff6b6b', displayName: 'ଓଡ଼ିଆ', image: '/icons/odia-card.jpg' },
-    { name: 'Hindi', icon: '🙏', color: '#4ecdc4', displayName: 'हिंदी', image: '/icons/hindi-card.jpg' },
-    { name: 'English', icon: '📖', color: '#45b7d1', displayName: 'English', image: '/icons/english-card.jpg' }
+    {
+      name: 'Odia',
+      icon: '🕉️',
+      color: '#ff6b6b',
+      displayName: 'ଓଡ଼ିଆ',
+      image: '/icons/ssggs1.jpg'
+    },
+    {
+      name: 'Hindi',
+      icon: '🙏',
+      color: '#4ecdc4',
+      displayName: 'हिंदी',
+      image: '/icons/ssggs2.jpg'
+    },
+    {
+      name: 'English',
+      icon: '📖',
+      color: '#45b7d1',
+      displayName: 'English',
+      image: '/icons/ssggs3.jpg'
+    }
   ];
 
   const filteredPlaylists = selectedLanguage
-    ? videoData.filter((playlist) =>
+    ? cryingSchoolVideoData.filter((playlist) =>
         playlist.language === selectedLanguage &&
         playlist.playlistName.toLowerCase().includes(searchTerm.toLowerCase()) &&
         playlistMatchesCategories(playlist, selectedCategories)
@@ -98,7 +116,7 @@ function VideoLibrary() {
   };
 
   const getPlaylistCount = (language) => {
-    return videoData.filter(p => p.language === language).length;
+    return cryingSchoolVideoData.filter((p) => p.language === language).length;
   };
 
   return (
@@ -110,13 +128,22 @@ function VideoLibrary() {
             <span className="back-text">Back to Languages</span>
           </button>
         )}
-        <h1>{selectedLanguage ? `${selectedLanguage} Videos` : 'Video Playlists'}</h1>
-        <p>{selectedLanguage ? `Watch ${selectedLanguage} video lecture series` : 'Watch organized video lecture series on various topics'}</p>
+        <h1>{selectedLanguage ? `${selectedLanguage} Videos` : 'Crying School Videos'}</h1>
+        <p>
+          {selectedLanguage
+            ? `Watch ${selectedLanguage} Crying School playlists`
+            : (
+                <>
+                  Watch Crying School playlists organized by language given by{' '}
+                  <span className="crying-school-guru">Śrī Śrīmad Gaurā Govinda Svāmī Mahārāja</span>
+                </>
+              )}
+        </p>
       </div>
 
       {!selectedLanguage ? (
         <div className="language-categories">
-          {languages.map(lang => (
+          {languages.map((lang) => (
             <div
               key={lang.name}
               className="language-card"
@@ -126,7 +153,7 @@ function VideoLibrary() {
                 setSelectedCategories([]);
                 setCategoryToAdd('');
               }}
-              style={{ 
+              style={{
                 borderTop: `4px solid ${lang.color}`,
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${lang.image})`,
                 backgroundSize: 'cover',
@@ -153,11 +180,7 @@ function VideoLibrary() {
                 className="search-input"
               />
               {searchTerm && (
-                <button
-                  className="clear-search"
-                  onClick={() => setSearchTerm('')}
-                  aria-label="Clear search"
-                >
+                <button className="clear-search" onClick={() => setSearchTerm('')} aria-label="Clear search">
                   ✕
                 </button>
               )}
@@ -204,12 +227,16 @@ function VideoLibrary() {
 
           {filteredPlaylists.length > 0 ? (
             <div className="playlists-grid">
-              {filteredPlaylists.map(playlist => {
+              {filteredPlaylists.map((playlist) => {
                 const playlistThumbnail =
                   getYouTubeThumbnailUrl(playlist.videos?.[0]?.youtubeUrl) || playlist.thumbnail;
 
                 return (
-                  <Link key={playlist.id} to={`/video/${playlist.id}`} className="playlist-card-link">
+                  <Link
+                    key={playlist.id}
+                    to={`/crying-school/${playlist.id}`}
+                    className="playlist-card-link"
+                  >
                     <div className="playlist-card">
                       <div className="playlist-thumbnail">
                         {playlistThumbnail ? (
@@ -219,7 +246,11 @@ function VideoLibrary() {
                             className="playlist-thumbnail-img"
                           />
                         ) : playlist.icon && playlist.icon.startsWith('/') ? (
-                          <img src={playlist.icon} alt={playlist.playlistName} className="playlist-icon-img" />
+                          <img
+                            src={playlist.icon}
+                            alt={playlist.playlistName}
+                            className="playlist-icon-img"
+                          />
                         ) : (
                           <span className="playlist-icon-emoji">{playlist.icon || '▶️'}</span>
                         )}
@@ -231,11 +262,7 @@ function VideoLibrary() {
                       <div className="playlist-content">
                         <h3>{playlist.playlistName}</h3>
                         <p className="playlist-description">{playlist.description}</p>
-                        {playlist.location && (
-                          <p className="playlist-location">
-                            📍 {playlist.location}
-                          </p>
-                        )}
+                        {playlist.location && <p className="playlist-location">📍 {playlist.location}</p>}
                       </div>
                     </div>
                   </Link>
@@ -253,4 +280,4 @@ function VideoLibrary() {
   );
 }
 
-export default VideoLibrary;
+export default CryingSchoolLibrary;
