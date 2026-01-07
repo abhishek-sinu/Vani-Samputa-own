@@ -452,10 +452,20 @@
   gap: 0.3rem;
 }
 
+@media (max-width: 900px) {
+  .library-header.has-back h1 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .library-header {
     padding: 1.25rem 1.25rem;
     margin-bottom: 1rem;
+  }
+
+  .library-header.has-back {
+    padding-top: 3rem;
   }
   .search-container {
     top: 0.5rem;
@@ -486,6 +496,10 @@
 
   .library-header h1 {
     font-size: 2rem;
+  }
+
+  .library-header.has-back h1 {
+    font-size: 1.8rem;
   }
 
   .library-header p {
@@ -565,6 +579,10 @@
 @media (max-width: 480px) {
   .library-header h1 {
     font-size: 1.5rem;
+  }
+
+  .library-header.has-back h1 {
+    font-size: 1.35rem;
   }
 
   .language-card h2 {
